@@ -18,8 +18,12 @@ export default function HeroSection() {
               teaching methods and expert faculty.
             </p>
           </div>
-          <div className="space-x-4">
-            <Button asChild size="lg">
+          <div className="space-x-4 ">
+            <Button
+              asChild
+              size="lg"
+              className="bg-black text-white hover:bg-neutral-800"
+            >
               <Link to="/courses">Explore Courses</Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
@@ -28,8 +32,8 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-4 lg:gap-12">
-          <Card>
+        <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-4 lg:gap-12 ">
+          <Card className='p-3'>
             <CardContent className="flex flex-col items-center space-y-2 p-6">
               <BookOpen className="h-12 w-12 text-primary" />
               <h3 className="text-2xl font-bold">500+</h3>
@@ -38,7 +42,7 @@ export default function HeroSection() {
               </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className='p-3'>
             <CardContent className="flex flex-col items-center space-y-2 p-6">
               <Users className="h-12 w-12 text-primary" />
               <h3 className="text-2xl font-bold">2000+</h3>
@@ -47,7 +51,7 @@ export default function HeroSection() {
               </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className='p-3'>
             <CardContent className="flex flex-col items-center space-y-2 p-6">
               <Award className="h-12 w-12 text-primary" />
               <h3 className="text-2xl font-bold">95%</h3>
@@ -56,7 +60,7 @@ export default function HeroSection() {
               </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className='p-3'>
             <CardContent className="flex flex-col items-center space-y-2 p-6">
               <TrendingUp className="h-12 w-12 text-primary" />
               <h3 className="text-2xl font-bold">10+</h3>
