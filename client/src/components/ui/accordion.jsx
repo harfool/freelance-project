@@ -1,12 +1,15 @@
-import * as React from "react"
-import * as AccordionPrimitive from "@radix-ui/react-accordion"
-import { ChevronDown } from "lucide-react"
+import * as React from "react";
+import * as AccordionPrimitive from "@radix-ui/react-accordion";
+import { ChevronDown } from "lucide-react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "../../utils/utils.js";
 
-const Accordion = AccordionPrimitive.Root
+const Accordion = AccordionPrimitive.Root;
 
-const AccordionItem = React.forwardRef(function AccordionItem({ className, ...props }, ref) {
+const AccordionItem = React.forwardRef(function AccordionItem(
+  { className, ...props },
+  ref
+) {
   return (
     <AccordionPrimitive.Item
       ref={ref}
@@ -16,7 +19,10 @@ const AccordionItem = React.forwardRef(function AccordionItem({ className, ...pr
   );
 });
 
-const AccordionTrigger = React.forwardRef(function AccordionTrigger({ className, children, ...props }, ref) {
+const AccordionTrigger = React.forwardRef(function AccordionTrigger(
+  { className, children, ...props },
+  ref
+) {
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
@@ -34,7 +40,10 @@ const AccordionTrigger = React.forwardRef(function AccordionTrigger({ className,
   );
 });
 
-const AccordionContent = React.forwardRef(function AccordionContent({ className, children, ...props }, ref) {
+const AccordionContent = React.forwardRef(function AccordionContent(
+  { className, children, ...props },
+  ref
+) {
   return (
     <AccordionPrimitive.Content
       ref={ref}
@@ -46,4 +55,4 @@ const AccordionContent = React.forwardRef(function AccordionContent({ className,
   );
 });
 
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent }
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
