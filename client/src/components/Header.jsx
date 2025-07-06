@@ -10,7 +10,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-10">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-15">
       <div className="container flex h-16 items-center">
         <Link to="/" className="flex items-center space-x-2">
           <GraduationCap className="h-6 w-6" />
@@ -19,43 +19,43 @@ export default function Header() {
         <nav className="hidden md:flex mx-6 space-x-6">
           <Link
             to="/"
-            className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-3 py-2 rounded"
+            className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-4 py-2 rounded"
           >
             Home
           </Link>
           <Link
             to="/courses"
-            className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-3 py-2 rounded"
+            className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-4 py-2 rounded"
           >
             Courses
           </Link>
           <Link
             to="/resources"
-            className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-3 py-2 rounded"
+            className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-4 py-2 rounded"
           >
             Resources
           </Link>
           <Link
             to="/tests"
-            className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-3 py-2 rounded"
+            className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-4 py-2 rounded"
           >
             Online Tests
           </Link>
           <Link
             to="/results"
-            className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-3 py-2 rounded"
+            className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-4 py-2 rounded"
           >
             Results
           </Link>
           <Link
             to="/scholarship"
-            className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-3 py-2 rounded"
+            className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-4 py-2 rounded"
           >
             Scholarship
           </Link>
           <Link
             to="/about"
-            className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-3 py-2 rounded"
+            className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-4 py-2 rounded"
           >
             About
           </Link>

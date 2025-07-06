@@ -2,6 +2,7 @@ import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import { BookOpen, Users, Award, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
+import CoursesSection from "./CoursesSection.jsx";
 
 export default function HeroSection() {
   return (
@@ -33,7 +34,7 @@ export default function HeroSection() {
         </div>
 
         <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-4 lg:gap-12 ">
-          <Card className='p-3'>
+          <Card className='pt-4'>
             <CardContent className="flex flex-col items-center space-y-2 p-6">
               <BookOpen className="h-12 w-12 text-primary" />
               <h3 className="text-2xl font-bold">500+</h3>
@@ -42,7 +43,7 @@ export default function HeroSection() {
               </p>
             </CardContent>
           </Card>
-          <Card className='p-3'>
+          <Card className='pt-4'>
             <CardContent className="flex flex-col items-center space-y-2 p-6">
               <Users className="h-12 w-12 text-primary" />
               <h3 className="text-2xl font-bold">2000+</h3>
@@ -51,7 +52,7 @@ export default function HeroSection() {
               </p>
             </CardContent>
           </Card>
-          <Card className='p-3'>
+          <Card className='pt-4'>
             <CardContent className="flex flex-col items-center space-y-2 p-6">
               <Award className="h-12 w-12 text-primary" />
               <h3 className="text-2xl font-bold">95%</h3>
@@ -60,7 +61,7 @@ export default function HeroSection() {
               </p>
             </CardContent>
           </Card>
-          <Card className='p-3'>
+          <Card className='pt-4'>
             <CardContent className="flex flex-col items-center space-y-2 p-6">
               <TrendingUp className="h-12 w-12 text-primary" />
               <h3 className="text-2xl font-bold">10+</h3>
@@ -71,6 +72,7 @@ export default function HeroSection() {
           </Card>
         </div>
       </div>
+      <CoursesSection/>
     </section>
   );
 }

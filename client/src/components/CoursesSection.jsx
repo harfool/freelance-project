@@ -4,9 +4,9 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+} from "../components/ui/card";
+import { Button } from "../components/ui/button";
+import { Badge } from "../components/ui/badge";
 import { Clock, Users, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -63,7 +63,7 @@ const courses = [
   },
 ];
 
-export function CoursesSection() {
+export default function CoursesSection() {
   return (
     <section className="py-12 md:py-24 lg:py-32">
       <div className="container px-4 md:px-6">
