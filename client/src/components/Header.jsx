@@ -62,7 +62,7 @@ export default function Header() {
             </Link>
           </Button>
           <Button size="sm" asChild className="hidden md:flex">
-            <Link to="/dashboard">
+            <Link to="/register">
               <User className="h-4 w-4 mr-2" />
               SignUp
             </Link>

@@ -1,10 +1,23 @@
-import { Header } from "../components/header"
-import { Footer } from "../components/footer"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
-import { Button } from "../components/ui/button"
-import { Badge } from "../components/ui/badge"
-import { Input } from "../components/ui/input"
-import { Download, FileText, Search, Filter, Calendar, Eye } from "lucide-react"
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
+import { Button } from "../components/ui/button";
+import { Badge } from "../components/ui/badge";
+import { Input } from "../components/ui/input";
+import {
+  Download,
+  FileText,
+  Search,
+  Filter,
+  Calendar,
+  Eye,
+} from "lucide-react";
 
 const studyMaterials = [
   {
@@ -22,7 +35,8 @@ const studyMaterials = [
   {
     id: 2,
     title: "MS Office Practical Assignments",
-    description: "Step-by-step practical assignments for Word, Excel, and PowerPoint",
+    description:
+      "Step-by-step practical assignments for Word, Excel, and PowerPoint",
     course: "RS-CIT",
     type: "Assignment",
     size: "1.8 MB",
@@ -34,7 +48,8 @@ const studyMaterials = [
   {
     id: 3,
     title: "NIOS Mathematics Chapter 1-5",
-    description: "Detailed notes for NIOS Mathematics covering algebra and geometry",
+    description:
+      "Detailed notes for NIOS Mathematics covering algebra and geometry",
     course: "NIOS",
     type: "Notes",
     size: "3.2 MB",
@@ -58,7 +73,8 @@ const studyMaterials = [
   {
     id: 5,
     title: "Computer Shortcut Keys Guide",
-    description: "Essential keyboard shortcuts for Windows and MS Office applications",
+    description:
+      "Essential keyboard shortcuts for Windows and MS Office applications",
     course: "General",
     type: "Reference",
     size: "0.5 MB",
@@ -79,23 +95,33 @@ const studyMaterials = [
     fileType: "PDF",
     isPublic: false,
   },
-]
+];
 
-const courses = ["All", "RS-CIT", "NIOS", "CBSE", "ITI", "University", "General"]
-const types = ["All", "Notes", "Assignment", "Reference", "Syllabus"]
+const courses = [
+  "All",
+  "RS-CIT",
+  "NIOS",
+  "CBSE",
+  "ITI",
+  "University",
+  "General",
+];
+const types = ["All", "Notes", "Assignment", "Reference", "Syllabus"];
 
 export default function NotesPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="py-12 md:py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-4">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Study Materials</h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                Study Materials
+              </h1>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                Access comprehensive notes, assignments, and study resources for all courses
+                Access comprehensive notes, assignments, and study resources for
+                all courses
               </p>
             </div>
           </div>
@@ -164,12 +190,18 @@ export default function NotesPage() {
                         <span className="font-medium">{material.fileType}</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-muted-foreground">Downloads:</span>
-                        <span className="font-medium">{material.downloads}</span>
+                        <span className="text-muted-foreground">
+                          Downloads:
+                        </span>
+                        <span className="font-medium">
+                          {material.downloads}
+                        </span>
                       </div>
                       <div className="flex items-center justify-between">
                         <span className="text-muted-foreground">Date:</span>
-                        <span className="font-medium">{new Date(material.uploadDate).toLocaleDateString()}</span>
+                        <span className="font-medium">
+                          {new Date(material.uploadDate).toLocaleDateString()}
+                        </span>
                       </div>
                     </div>
 
@@ -180,13 +212,20 @@ export default function NotesPage() {
                             <Download className="h-4 w-4 mr-2" />
                             Download
                           </Button>
-                          <Button variant="outline" className="w-full bg-transparent">
+                          <Button
+                            variant="outline"
+                            className="w-full bg-transparent"
+                          >
                             <Eye className="h-4 w-4 mr-2" />
                             Preview
                           </Button>
                         </>
                       ) : (
-                        <Button variant="outline" className="w-full bg-transparent" disabled>
+                        <Button
+                          variant="outline"
+                          className="w-full bg-transparent"
+                          disabled
+                        >
                           Login Required
                         </Button>
                       )}
@@ -203,7 +242,9 @@ export default function NotesPage() {
           <div className="container px-4 md:px-6">
             <div className="text-center mb-8">
               <h2 className="text-2xl font-bold mb-4">Most Downloaded</h2>
-              <p className="text-muted-foreground">Popular study materials among students</p>
+              <p className="text-muted-foreground">
+                Popular study materials among students
+              </p>
             </div>
 
             <div className="grid gap-4 max-w-4xl mx-auto">
@@ -216,7 +257,9 @@ export default function NotesPage() {
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-4">
                           <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                            <span className="text-primary font-semibold">{index + 1}</span>
+                            <span className="text-primary font-semibold">
+                              {index + 1}
+                            </span>
                           </div>
                           <div>
                             <h3 className="font-semibold">{material.title}</h3>
@@ -227,7 +270,9 @@ export default function NotesPage() {
                               <span>{material.downloads} downloads</span>
                               <div className="flex items-center">
                                 <Calendar className="h-3 w-3 mr-1" />
-                                {new Date(material.uploadDate).toLocaleDateString()}
+                                {new Date(
+                                  material.uploadDate
+                                ).toLocaleDateString()}
                               </div>
                             </div>
                           </div>
@@ -248,7 +293,9 @@ export default function NotesPage() {
         <section className="py-12 md:py-16">
           <div className="container px-4 md:px-6">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold mb-4">Study Material Guidelines</h2>
+              <h2 className="text-2xl font-bold mb-4">
+                Study Material Guidelines
+              </h2>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -257,7 +304,8 @@ export default function NotesPage() {
                   <FileText className="h-12 w-12 mx-auto mb-4 text-primary" />
                   <h3 className="font-semibold mb-2">Quality Content</h3>
                   <p className="text-sm text-muted-foreground">
-                    All materials are reviewed by expert faculty before publication
+                    All materials are reviewed by expert faculty before
+                    publication
                   </p>
                 </CardContent>
               </Card>
@@ -287,5 +335,5 @@ export default function NotesPage() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

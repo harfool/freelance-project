@@ -1,9 +1,14 @@
-import { Header } from "../components/header"
-import { Footer } from "../components/footer"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
-import { Button } from "../components/ui/button"
-import { Badge } from "../components/ui/badge"
-import { Clock, Users, BookOpen, Star, CheckCircle } from "lucide-react"
+import Footer from "../components/Footer.jsx";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
+import { Button } from "../components/ui/button";
+import { Badge } from "../components/ui/badge";
+import { Clock, Users, BookOpen, Star, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const courses = [
@@ -32,7 +37,8 @@ const courses = [
     id: "nios",
     title: "NIOS",
     fullName: "National Institute of Open Schooling",
-    description: "Flexible schooling system for 10th and 12th standard with multiple subject options.",
+    description:
+      "Flexible schooling system for 10th and 12th standard with multiple subject options.",
     duration: "1-2 Years",
     students: "300+",
     modules: "Subject-wise",
@@ -52,7 +58,8 @@ const courses = [
     id: "cbse",
     title: "CBSE",
     fullName: "Central Board of Secondary Education",
-    description: "Complete preparation for CBSE board examinations with expert guidance and practice tests.",
+    description:
+      "Complete preparation for CBSE board examinations with expert guidance and practice tests.",
     duration: "1 Year",
     students: "400+",
     modules: "Subject-wise",
@@ -72,7 +79,8 @@ const courses = [
     id: "university",
     title: "University Courses",
     fullName: "Various University Course Preparations",
-    description: "Preparation and guidance for various university entrance exams and degree courses.",
+    description:
+      "Preparation and guidance for various university entrance exams and degree courses.",
     duration: "Varies",
     students: "200+",
     modules: "Custom",
@@ -92,7 +100,8 @@ const courses = [
     id: "iti",
     title: "ITI",
     fullName: "Industrial Training Institute",
-    description: "Technical and vocational training programs for various trades and skill development.",
+    description:
+      "Technical and vocational training programs for various trades and skill development.",
     duration: "6 Months - 2 Years",
     students: "150+",
     modules: "Trade-specific",
@@ -112,7 +121,8 @@ const courses = [
     id: "competitive",
     title: "Competitive Exams",
     fullName: "Government Job Preparation",
-    description: "Comprehensive preparation for various government competitive examinations.",
+    description:
+      "Comprehensive preparation for various government competitive examinations.",
     duration: "6-12 Months",
     students: "250+",
     modules: "Exam-specific",
@@ -128,20 +138,22 @@ const courses = [
     ],
     href: "/courses/competitive",
   },
-]
+];
 
 export default function CoursesPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="py-12 md:py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-4">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Our Courses</h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                Our Courses
+              </h1>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                Comprehensive courses designed to help you achieve your educational and career goals
+                Comprehensive courses designed to help you achieve your
+                educational and career goals
               </p>
             </div>
           </div>
@@ -158,37 +170,56 @@ export default function CoursesPage() {
                       <Badge variant="secondary">{course.level}</Badge>
                       <div className="flex items-center space-x-1">
                         <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                        <span className="text-sm font-medium">{course.rating}</span>
+                        <span className="text-sm font-medium">
+                          {course.rating}
+                        </span>
                       </div>
                     </div>
                     <CardTitle className="text-xl">{course.title}</CardTitle>
-                    <CardDescription className="text-sm font-medium text-primary">{course.fullName}</CardDescription>
-                    <p className="text-sm text-muted-foreground">{course.description}</p>
+                    <CardDescription className="text-sm font-medium text-primary">
+                      {course.fullName}
+                    </CardDescription>
+                    <p className="text-sm text-muted-foreground">
+                      {course.description}
+                    </p>
                   </CardHeader>
 
                   <CardContent className="flex-1 space-y-4">
                     <div className="grid grid-cols-3 gap-4 text-sm">
                       <div className="flex items-center space-x-1">
                         <Clock className="h-4 w-4 text-muted-foreground" />
-                        <span className="text-muted-foreground">{course.duration}</span>
+                        <span className="text-muted-foreground">
+                          {course.duration}
+                        </span>
                       </div>
                       <div className="flex items-center space-x-1">
                         <Users className="h-4 w-4 text-muted-foreground" />
-                        <span className="text-muted-foreground">{course.students}</span>
+                        <span className="text-muted-foreground">
+                          {course.students}
+                        </span>
                       </div>
                       <div className="flex items-center space-x-1">
                         <BookOpen className="h-4 w-4 text-muted-foreground" />
-                        <span className="text-muted-foreground">{course.modules}</span>
+                        <span className="text-muted-foreground">
+                          {course.modules}
+                        </span>
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <h4 className="font-semibold text-sm">Course Features:</h4>
+                      <h4 className="font-semibold text-sm">
+                        Course Features:
+                      </h4>
                       <ul className="space-y-1">
                         {course.features.map((feature, index) => (
-                          <li key={index} className="flex items-center space-x-2 text-sm">
+                          <li
+                            key={index}
+                            className="flex items-center space-x-2 text-sm"
+                          >
                             <CheckCircle className="h-3 w-3 text-green-600" />
-                            <span className="text-muted-foreground">{feature}</span>
+                            <span className="text-muted-foreground">
+                              {feature}
+                            </span>
                           </li>
                         ))}
                       </ul>
@@ -196,8 +227,12 @@ export default function CoursesPage() {
 
                     <div className="flex items-center justify-between pt-4 border-t">
                       <div>
-                        <span className="text-2xl font-bold text-primary">{course.price}</span>
-                        <span className="text-sm text-muted-foreground ml-1">/ course</span>
+                        <span className="text-2xl font-bold text-primary">
+                          {course.price}
+                        </span>
+                        <span className="text-sm text-muted-foreground ml-1">
+                          / course
+                        </span>
                       </div>
                       <Button asChild>
                         <Link href={course.href}>Learn More</Link>
@@ -214,9 +249,12 @@ export default function CoursesPage() {
         <section className="py-12 md:py-16 bg-muted/50">
           <div className="container px-4 md:px-6">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Why Choose Our Courses?</h2>
+              <h2 className="text-3xl font-bold mb-4">
+                Why Choose Our Courses?
+              </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                We provide comprehensive education with modern teaching methods and industry-relevant curriculum
+                We provide comprehensive education with modern teaching methods
+                and industry-relevant curriculum
               </p>
             </div>
 
@@ -224,9 +262,12 @@ export default function CoursesPage() {
               <Card>
                 <CardContent className="p-6 text-center">
                   <BookOpen className="h-12 w-12 mx-auto mb-4 text-primary" />
-                  <h3 className="font-semibold mb-2">Comprehensive Curriculum</h3>
+                  <h3 className="font-semibold mb-2">
+                    Comprehensive Curriculum
+                  </h3>
                   <p className="text-sm text-muted-foreground">
-                    Well-structured courses covering all essential topics and practical applications
+                    Well-structured courses covering all essential topics and
+                    practical applications
                   </p>
                 </CardContent>
               </Card>
@@ -236,7 +277,8 @@ export default function CoursesPage() {
                   <Users className="h-12 w-12 mx-auto mb-4 text-primary" />
                   <h3 className="font-semibold mb-2">Expert Faculty</h3>
                   <p className="text-sm text-muted-foreground">
-                    Learn from experienced professionals with deep subject knowledge
+                    Learn from experienced professionals with deep subject
+                    knowledge
                   </p>
                 </CardContent>
               </Card>
@@ -246,7 +288,8 @@ export default function CoursesPage() {
                   <CheckCircle className="h-12 w-12 mx-auto mb-4 text-primary" />
                   <h3 className="font-semibold mb-2">Practical Learning</h3>
                   <p className="text-sm text-muted-foreground">
-                    Hands-on experience with real-world projects and case studies
+                    Hands-on experience with real-world projects and case
+                    studies
                   </p>
                 </CardContent>
               </Card>
@@ -256,7 +299,8 @@ export default function CoursesPage() {
                   <Star className="h-12 w-12 mx-auto mb-4 text-primary" />
                   <h3 className="font-semibold mb-2">High Success Rate</h3>
                   <p className="text-sm text-muted-foreground">
-                    95% of our students successfully complete their courses and achieve their goals
+                    95% of our students successfully complete their courses and
+                    achieve their goals
                   </p>
                 </CardContent>
               </Card>
@@ -266,5 +310,5 @@ export default function CoursesPage() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

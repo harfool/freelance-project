@@ -1,20 +1,43 @@
-import { Header } from "../components/header"
-import { Footer } from "../components/footer"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
-import { Button } from "../components/ui/button"
-import { Badge } from "../components/ui/badge"
-import { Calendar, FileText, Users, Award, CheckCircle, AlertCircle, Download } from "lucide-react"
+import Footer from "../components/Footer.jsx";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
+import { Button } from "../components/ui/button";
+import { Badge } from "../components/ui/badge";
+import {
+  Calendar,
+  FileText,
+  Users,
+  Award,
+  CheckCircle,
+  AlertCircle,
+  Download,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 const scholarships = [
   {
     id: 1,
     title: "Merit-Based Scholarship 2024",
-    description: "Scholarship for students with outstanding academic performance",
+    description:
+      "Scholarship for students with outstanding academic performance",
     amount: "₹25,000",
-    eligibility: ["Minimum 85% in previous examination", "Family income below ₹3 lakhs", "Regular attendance"],
+    eligibility: [
+      "Minimum 85% in previous examination",
+      "Family income below ₹3 lakhs",
+      "Regular attendance",
+    ],
     deadline: "2024-02-15",
-    documents: ["Academic transcripts", "Income certificate", "Aadhar card", "Bank details"],
+    documents: [
+      "Academic transcripts",
+      "Income certificate",
+      "Aadhar card",
+      "Bank details",
+    ],
     applicationProcess: "Online application through student portal",
     status: "Open",
     category: "Academic Excellence",
@@ -24,21 +47,41 @@ const scholarships = [
     title: "Need-Based Financial Aid",
     description: "Financial assistance for economically disadvantaged students",
     amount: "₹15,000",
-    eligibility: ["Family income below ₹2 lakhs", "Enrolled in any course", "Good academic standing"],
+    eligibility: [
+      "Family income below ₹2 lakhs",
+      "Enrolled in any course",
+      "Good academic standing",
+    ],
     deadline: "2024-03-01",
-    documents: ["Income certificate", "BPL card (if applicable)", "Academic records", "Bank details"],
-    applicationProcess: "Submit application with required documents to admin office",
+    documents: [
+      "Income certificate",
+      "BPL card (if applicable)",
+      "Academic records",
+      "Bank details",
+    ],
+    applicationProcess:
+      "Submit application with required documents to admin office",
     status: "Open",
     category: "Financial Aid",
   },
   {
     id: 3,
     title: "Women Empowerment Scholarship",
-    description: "Special scholarship to encourage women in technical education",
+    description:
+      "Special scholarship to encourage women in technical education",
     amount: "₹20,000",
-    eligibility: ["Female students only", "Enrolled in technical courses", "Minimum 75% attendance"],
+    eligibility: [
+      "Female students only",
+      "Enrolled in technical courses",
+      "Minimum 75% attendance",
+    ],
     deadline: "2024-02-28",
-    documents: ["Academic records", "Gender certificate", "Course enrollment proof", "Bank details"],
+    documents: [
+      "Academic records",
+      "Gender certificate",
+      "Course enrollment proof",
+      "Bank details",
+    ],
     applicationProcess: "Online application with document verification",
     status: "Open",
     category: "Women Empowerment",
@@ -48,9 +91,18 @@ const scholarships = [
     title: "SC/ST Scholarship Program",
     description: "Government scholarship for SC/ST category students",
     amount: "₹30,000",
-    eligibility: ["SC/ST category certificate", "Enrolled in recognized courses", "Family income below ₹2.5 lakhs"],
+    eligibility: [
+      "SC/ST category certificate",
+      "Enrolled in recognized courses",
+      "Family income below ₹2.5 lakhs",
+    ],
     deadline: "2024-01-31",
-    documents: ["Caste certificate", "Income certificate", "Academic records", "Aadhar card"],
+    documents: [
+      "Caste certificate",
+      "Income certificate",
+      "Academic records",
+      "Aadhar card",
+    ],
     applicationProcess: "Government portal application with document upload",
     status: "Closing Soon",
     category: "Government Scheme",
@@ -60,55 +112,71 @@ const scholarships = [
     title: "Rural Area Student Support",
     description: "Special support for students from rural backgrounds",
     amount: "₹12,000",
-    eligibility: ["Rural area residence proof", "Any course enrollment", "Regular attendance"],
+    eligibility: [
+      "Rural area residence proof",
+      "Any course enrollment",
+      "Regular attendance",
+    ],
     deadline: "2024-03-15",
-    documents: ["Residence proof", "Academic records", "Income certificate", "Bank details"],
+    documents: [
+      "Residence proof",
+      "Academic records",
+      "Income certificate",
+      "Bank details",
+    ],
     applicationProcess: "Submit application at nearest center",
     status: "Open",
     category: "Rural Development",
   },
-]
+];
 
 const applicationSteps = [
   {
     step: 1,
     title: "Check Eligibility",
-    description: "Review the eligibility criteria for your desired scholarship program",
+    description:
+      "Review the eligibility criteria for your desired scholarship program",
   },
   {
     step: 2,
     title: "Gather Documents",
-    description: "Collect all required documents as per the scholarship requirements",
+    description:
+      "Collect all required documents as per the scholarship requirements",
   },
   {
     step: 3,
     title: "Submit Application",
-    description: "Complete the application form and submit with required documents",
+    description:
+      "Complete the application form and submit with required documents",
   },
   {
     step: 4,
     title: "Wait for Review",
-    description: "Your application will be reviewed by the scholarship committee",
+    description:
+      "Your application will be reviewed by the scholarship committee",
   },
   {
     step: 5,
     title: "Receive Decision",
-    description: "You will be notified about the scholarship decision via email/SMS",
+    description:
+      "You will be notified about the scholarship decision via email/SMS",
   },
-]
+];
 
 export default function ScholarshipPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="py-12 md:py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-4">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Scholarship Programs</h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                Scholarship Programs
+              </h1>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                Financial assistance and scholarships to support your educational journey
+                Financial assistance and scholarships to support your
+                educational journey
               </p>
             </div>
           </div>
@@ -122,28 +190,36 @@ export default function ScholarshipPage() {
                 <CardContent className="p-6 text-center">
                   <Award className="h-12 w-12 mx-auto mb-4 text-primary" />
                   <div className="text-2xl font-bold mb-2">₹1.2 Cr</div>
-                  <div className="text-sm text-muted-foreground">Total Scholarships Awarded</div>
+                  <div className="text-sm text-muted-foreground">
+                    Total Scholarships Awarded
+                  </div>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-6 text-center">
                   <Users className="h-12 w-12 mx-auto mb-4 text-green-600" />
                   <div className="text-2xl font-bold mb-2">850+</div>
-                  <div className="text-sm text-muted-foreground">Students Benefited</div>
+                  <div className="text-sm text-muted-foreground">
+                    Students Benefited
+                  </div>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-6 text-center">
                   <FileText className="h-12 w-12 mx-auto mb-4 text-blue-600" />
                   <div className="text-2xl font-bold mb-2">15</div>
-                  <div className="text-sm text-muted-foreground">Active Programs</div>
+                  <div className="text-sm text-muted-foreground">
+                    Active Programs
+                  </div>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-6 text-center">
                   <Calendar className="h-12 w-12 mx-auto mb-4 text-purple-600" />
                   <div className="text-2xl font-bold mb-2">5</div>
-                  <div className="text-sm text-muted-foreground">Applications Open</div>
+                  <div className="text-sm text-muted-foreground">
+                    Applications Open
+                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -154,9 +230,12 @@ export default function ScholarshipPage() {
         <section className="py-12 md:py-16 bg-muted/50">
           <div className="container px-4 md:px-6">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Available Scholarships</h2>
+              <h2 className="text-3xl font-bold mb-4">
+                Available Scholarships
+              </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Explore our various scholarship programs designed to support students from different backgrounds
+                Explore our various scholarship programs designed to support
+                students from different backgrounds
               </p>
             </div>
 
@@ -171,21 +250,25 @@ export default function ScholarshipPage() {
                           scholarship.status === "Open"
                             ? "default"
                             : scholarship.status === "Closing Soon"
-                              ? "destructive"
-                              : "secondary"
+                            ? "destructive"
+                            : "secondary"
                         }
                       >
                         {scholarship.status}
                       </Badge>
                     </div>
-                    <CardTitle className="text-xl">{scholarship.title}</CardTitle>
+                    <CardTitle className="text-xl">
+                      {scholarship.title}
+                    </CardTitle>
                     <CardDescription>{scholarship.description}</CardDescription>
                   </CardHeader>
 
                   <CardContent className="space-y-6">
                     <div className="flex items-center justify-between p-4 bg-primary/5 rounded-lg">
                       <span className="font-medium">Scholarship Amount</span>
-                      <span className="text-2xl font-bold text-primary">{scholarship.amount}</span>
+                      <span className="text-2xl font-bold text-primary">
+                        {scholarship.amount}
+                      </span>
                     </div>
 
                     <div className="space-y-3">
@@ -195,7 +278,10 @@ export default function ScholarshipPage() {
                       </h4>
                       <ul className="space-y-1 ml-6">
                         {scholarship.eligibility.map((criteria, index) => (
-                          <li key={index} className="text-sm text-muted-foreground flex items-start">
+                          <li
+                            key={index}
+                            className="text-sm text-muted-foreground flex items-start"
+                          >
                             <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-2 flex-shrink-0"></span>
                             {criteria}
                           </li>
@@ -210,7 +296,11 @@ export default function ScholarshipPage() {
                       </h4>
                       <div className="flex flex-wrap gap-2 ml-6">
                         {scholarship.documents.map((doc, index) => (
-                          <Badge key={index} variant="outline" className="text-xs">
+                          <Badge
+                            key={index}
+                            variant="outline"
+                            className="text-xs"
+                          >
                             {doc}
                           </Badge>
                         ))}
@@ -224,8 +314,14 @@ export default function ScholarshipPage() {
                       </h4>
                       <div className="ml-6 space-y-2">
                         <div className="flex items-center justify-between text-sm">
-                          <span className="text-muted-foreground">Application Deadline:</span>
-                          <span className="font-medium">{new Date(scholarship.deadline).toLocaleDateString()}</span>
+                          <span className="text-muted-foreground">
+                            Application Deadline:
+                          </span>
+                          <span className="font-medium">
+                            {new Date(
+                              scholarship.deadline
+                            ).toLocaleDateString()}
+                          </span>
                         </div>
                         {scholarship.status === "Closing Soon" && (
                           <div className="flex items-center text-sm text-red-600">
@@ -238,7 +334,8 @@ export default function ScholarshipPage() {
 
                     <div className="pt-4 border-t">
                       <p className="text-sm text-muted-foreground mb-3">
-                        <strong>Application Process:</strong> {scholarship.applicationProcess}
+                        <strong>Application Process:</strong>{" "}
+                        {scholarship.applicationProcess}
                       </p>
                       <Button className="w-full" asChild>
                         <Link href="/login">Apply Now</Link>
@@ -269,8 +366,12 @@ export default function ScholarshipPage() {
                       {step.step}
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
-                      <p className="text-muted-foreground">{step.description}</p>
+                      <h3 className="text-lg font-semibold mb-2">
+                        {step.title}
+                      </h3>
+                      <p className="text-muted-foreground">
+                        {step.description}
+                      </p>
                     </div>
                     {index < applicationSteps.length - 1 && (
                       <div className="absolute left-6 mt-12 w-0.5 h-8 bg-border"></div>
@@ -299,8 +400,13 @@ export default function ScholarshipPage() {
                   <ul className="space-y-2 text-sm text-muted-foreground">
                     <li>• Scholarships are awarded based on merit and need</li>
                     <li>• False information may lead to disqualification</li>
-                    <li>• Scholarship amount will be credited directly to student account</li>
-                    <li>• Recipients must maintain minimum academic standards</li>
+                    <li>
+                      • Scholarship amount will be credited directly to student
+                      account
+                    </li>
+                    <li>
+                      • Recipients must maintain minimum academic standards
+                    </li>
                     <li>• Scholarship committee's decision is final</li>
                   </ul>
                 </CardContent>
@@ -337,9 +443,12 @@ export default function ScholarshipPage() {
           <div className="container px-4 md:px-6">
             <Card className="max-w-2xl mx-auto text-center">
               <CardContent className="p-8">
-                <h3 className="text-xl font-semibold mb-4">Need Help with Your Application?</h3>
+                <h3 className="text-xl font-semibold mb-4">
+                  Need Help with Your Application?
+                </h3>
                 <p className="text-muted-foreground mb-6">
-                  Our scholarship counselors are here to help you with the application process
+                  Our scholarship counselors are here to help you with the
+                  application process
                 </p>
                 <div className="space-y-2 mb-6">
                   <p className="text-sm">
@@ -362,5 +471,5 @@ export default function ScholarshipPage() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

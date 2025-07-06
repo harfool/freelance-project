@@ -1,13 +1,18 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Header } from "../components/header"
-import { Footer } from "../components/footer"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
-import { Button } from "../components/ui/button"
-import { Badge } from "../components/ui/badge"
-import { Input } from "../components/ui/input"
-import { Clock, Users, FileText, Play, Search, Filter } from "lucide-react"
+import { useState } from "react";
+import Footer from "../components/Footer.jsx";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
+import { Button } from "../components/ui/button";
+import { Badge } from "../components/ui/badge";
+import { Input } from "../components/ui/input";
+import { Clock, Users, FileText, Play, Search, Filter } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const tests = [
@@ -15,7 +20,8 @@ const tests = [
     id: 1,
     title: "RS-CIT Basic Computer Test",
     course: "RS-CIT",
-    description: "Test your knowledge of basic computer operations and MS Office applications",
+    description:
+      "Test your knowledge of basic computer operations and MS Office applications",
     duration: 60,
     questions: 50,
     attempts: 245,
@@ -27,7 +33,8 @@ const tests = [
     id: 2,
     title: "NIOS Mathematics Chapter 1-5",
     course: "NIOS",
-    description: "Comprehensive test covering algebra, geometry, and basic mathematics concepts",
+    description:
+      "Comprehensive test covering algebra, geometry, and basic mathematics concepts",
     duration: 90,
     questions: 40,
     attempts: 156,
@@ -39,7 +46,8 @@ const tests = [
     id: 3,
     title: "CBSE Physics Mock Test",
     course: "CBSE",
-    description: "Practice test for CBSE Class 12 Physics covering mechanics and thermodynamics",
+    description:
+      "Practice test for CBSE Class 12 Physics covering mechanics and thermodynamics",
     duration: 120,
     questions: 35,
     attempts: 189,
@@ -51,7 +59,8 @@ const tests = [
     id: 4,
     title: "ITI Electrician Trade Test",
     course: "ITI",
-    description: "Technical knowledge test for electrician trade covering electrical basics",
+    description:
+      "Technical knowledge test for electrician trade covering electrical basics",
     duration: 75,
     questions: 45,
     attempts: 98,
@@ -63,7 +72,8 @@ const tests = [
     id: 5,
     title: "University Entrance Mock Test",
     course: "University",
-    description: "General aptitude and subject-specific questions for university entrance preparation",
+    description:
+      "General aptitude and subject-specific questions for university entrance preparation",
     duration: 180,
     questions: 100,
     attempts: 234,
@@ -75,7 +85,8 @@ const tests = [
     id: 6,
     title: "SSC General Knowledge Test",
     course: "Competitive",
-    description: "Current affairs and general knowledge test for SSC exam preparation",
+    description:
+      "Current affairs and general knowledge test for SSC exam preparation",
     duration: 60,
     questions: 50,
     attempts: 312,
@@ -83,37 +94,49 @@ const tests = [
     isDemo: false,
     topics: ["Current Affairs", "History", "Geography", "Science"],
   },
-]
+];
 
-const courses = ["All", "RS-CIT", "NIOS", "CBSE", "ITI", "University", "Competitive"]
-const difficulties = ["All", "Beginner", "Intermediate", "Advanced"]
+const courses = [
+  "All",
+  "RS-CIT",
+  "NIOS",
+  "CBSE",
+  "ITI",
+  "University",
+  "Competitive",
+];
+const difficulties = ["All", "Beginner", "Intermediate", "Advanced"];
 
 export default function TestsPage() {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [selectedCourse, setSelectedCourse] = useState("All")
-  const [selectedDifficulty, setSelectedDifficulty] = useState("All")
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCourse, setSelectedCourse] = useState("All");
+  const [selectedDifficulty, setSelectedDifficulty] = useState("All");
 
   const filteredTests = tests.filter((test) => {
     const matchesSearch =
       test.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      test.description.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCourse = selectedCourse === "All" || test.course === selectedCourse
-    const matchesDifficulty = selectedDifficulty === "All" || test.difficulty === selectedDifficulty
+      test.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCourse =
+      selectedCourse === "All" || test.course === selectedCourse;
+    const matchesDifficulty =
+      selectedDifficulty === "All" || test.difficulty === selectedDifficulty;
 
-    return matchesSearch && matchesCourse && matchesDifficulty
-  })
+    return matchesSearch && matchesCourse && matchesDifficulty;
+  });
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="py-12 md:py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-4">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Online Tests</h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                Online Tests
+              </h1>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                Practice with our comprehensive online tests and assess your knowledge
+                Practice with our comprehensive online tests and assess your
+                knowledge
               </p>
             </div>
           </div>
@@ -176,7 +199,9 @@ export default function TestsPage() {
               <div className="text-center py-12">
                 <FileText className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
                 <h3 className="text-lg font-semibold mb-2">No tests found</h3>
-                <p className="text-muted-foreground">Try adjusting your search criteria</p>
+                <p className="text-muted-foreground">
+                  Try adjusting your search criteria
+                </p>
               </div>
             ) : (
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -191,13 +216,15 @@ export default function TestsPage() {
                               test.difficulty === "Beginner"
                                 ? "secondary"
                                 : test.difficulty === "Intermediate"
-                                  ? "default"
-                                  : "destructive"
+                                ? "default"
+                                : "destructive"
                             }
                           >
                             {test.difficulty}
                           </Badge>
-                          {test.isDemo && <Badge variant="secondary">Demo</Badge>}
+                          {test.isDemo && (
+                            <Badge variant="secondary">Demo</Badge>
+                          )}
                         </div>
                       </div>
                       <CardTitle className="text-lg">{test.title}</CardTitle>
@@ -208,23 +235,35 @@ export default function TestsPage() {
                       <div className="grid grid-cols-3 gap-4 text-sm">
                         <div className="flex items-center space-x-1">
                           <Clock className="h-4 w-4 text-muted-foreground" />
-                          <span className="text-muted-foreground">{test.duration}m</span>
+                          <span className="text-muted-foreground">
+                            {test.duration}m
+                          </span>
                         </div>
                         <div className="flex items-center space-x-1">
                           <FileText className="h-4 w-4 text-muted-foreground" />
-                          <span className="text-muted-foreground">{test.questions}Q</span>
+                          <span className="text-muted-foreground">
+                            {test.questions}Q
+                          </span>
                         </div>
                         <div className="flex items-center space-x-1">
                           <Users className="h-4 w-4 text-muted-foreground" />
-                          <span className="text-muted-foreground">{test.attempts}</span>
+                          <span className="text-muted-foreground">
+                            {test.attempts}
+                          </span>
                         </div>
                       </div>
 
                       <div className="space-y-2">
-                        <h4 className="font-semibold text-sm">Topics Covered:</h4>
+                        <h4 className="font-semibold text-sm">
+                          Topics Covered:
+                        </h4>
                         <div className="flex flex-wrap gap-1">
                           {test.topics.map((topic, index) => (
-                            <Badge key={index} variant="outline" className="text-xs">
+                            <Badge
+                              key={index}
+                              variant="outline"
+                              className="text-xs"
+                            >
                               {topic}
                             </Badge>
                           ))}
@@ -240,7 +279,11 @@ export default function TestsPage() {
                             </Link>
                           </Button>
                         ) : (
-                          <Button variant="outline" className="w-full bg-transparent" asChild>
+                          <Button
+                            variant="outline"
+                            className="w-full bg-transparent"
+                            asChild
+                          >
                             <Link href="/login">Login to Take Test</Link>
                           </Button>
                         )}
@@ -259,7 +302,8 @@ export default function TestsPage() {
             <div className="text-center mb-8">
               <h2 className="text-2xl font-bold mb-4">Test Instructions</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Please read the following instructions carefully before starting any test
+                Please read the following instructions carefully before starting
+                any test
               </p>
             </div>
 
@@ -305,5 +349,5 @@ export default function TestsPage() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

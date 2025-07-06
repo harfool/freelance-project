@@ -2,8 +2,7 @@
 
 import React from "react";
 import { useState } from "react";
-import { Header } from "../components/header";
-import { Footer } from "../components/footer";
+import Footer from "../components/Footer.jsx";
 import {
   Card,
   CardContent,
@@ -66,8 +65,7 @@ const mockResults = [
 
 export default function ResultsPage() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchResult, setSearchResult] =
-    (useState < (typeof mockResults)[0]) | (null > null);
+  const [searchResult, setSearchResult] = useState(null);
   const [isSearching, setIsSearching] = useState(false);
   const { toast } = useToast();
 
@@ -115,7 +113,6 @@ export default function ResultsPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="py-12 md:py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/10">

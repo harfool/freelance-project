@@ -1,15 +1,14 @@
-import { Header } from "../components/header"
-import { Footer } from "../components/footer"
-import { Card, CardContent } from "../components/ui/card"
-import { Badge } from "../components/ui/badge"
-import { Users, Award, BookOpen, Target, Heart, Star } from "lucide-react"
+import Footer from "../components/Footer.jsx";
+import { Card, CardContent } from "../components/ui/card";
+import { Badge } from "../components/ui/badge";
+import { Users, Award, BookOpen, Target, Heart, Star } from "lucide-react";
 
 const stats = [
   { icon: Users, label: "Students Trained", value: "5000+" },
   { icon: Award, label: "Success Rate", value: "95%" },
   { icon: BookOpen, label: "Courses Offered", value: "15+" },
   { icon: Target, label: "Years Experience", value: "10+" },
-]
+];
 
 const team = [
   {
@@ -33,38 +32,43 @@ const team = [
     experience: "10+ years",
     image: "/placeholder.svg?height=200&width=200",
   },
-]
+];
 
 const values = [
   {
     icon: Heart,
     title: "Student-Centric Approach",
-    description: "We prioritize individual student needs and provide personalized attention to ensure success.",
+    description:
+      "We prioritize individual student needs and provide personalized attention to ensure success.",
   },
   {
     icon: Star,
     title: "Quality Education",
-    description: "Our curriculum is designed to meet industry standards and provide practical knowledge.",
+    description:
+      "Our curriculum is designed to meet industry standards and provide practical knowledge.",
   },
   {
     icon: Target,
     title: "Result-Oriented",
-    description: "We focus on achieving measurable outcomes and helping students reach their goals.",
+    description:
+      "We focus on achieving measurable outcomes and helping students reach their goals.",
   },
-]
+];
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="py-12 md:py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-4">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">About EduInstitute</h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                About EduInstitute
+              </h1>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                Empowering students with quality education and modern teaching methodologies for over a decade
+                Empowering students with quality education and modern teaching
+                methodologies for over a decade
               </p>
             </div>
           </div>
@@ -79,7 +83,9 @@ export default function AboutPage() {
                   <CardContent className="p-6">
                     <stat.icon className="h-12 w-12 mx-auto mb-4 text-primary" />
                     <h3 className="text-2xl font-bold mb-2">{stat.value}</h3>
-                    <p className="text-sm text-muted-foreground">{stat.label}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {stat.label}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -95,9 +101,11 @@ export default function AboutPage() {
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
                   <p className="text-muted-foreground leading-relaxed">
-                    To provide accessible, high-quality education that empowers students to achieve their academic and
-                    professional goals. We strive to create an inclusive learning environment that fosters creativity,
-                    critical thinking, and lifelong learning.
+                    To provide accessible, high-quality education that empowers
+                    students to achieve their academic and professional goals.
+                    We strive to create an inclusive learning environment that
+                    fosters creativity, critical thinking, and lifelong
+                    learning.
                   </p>
                 </CardContent>
               </Card>
@@ -105,9 +113,11 @@ export default function AboutPage() {
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
                   <p className="text-muted-foreground leading-relaxed">
-                    To be the leading educational institution that transforms lives through innovative teaching methods,
-                    technology integration, and personalized learning experiences. We envision a future where every
-                    student has the opportunity to excel and contribute meaningfully to society.
+                    To be the leading educational institution that transforms
+                    lives through innovative teaching methods, technology
+                    integration, and personalized learning experiences. We
+                    envision a future where every student has the opportunity to
+                    excel and contribute meaningfully to society.
                   </p>
                 </CardContent>
               </Card>
@@ -121,7 +131,8 @@ export default function AboutPage() {
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">Our Core Values</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                The principles that guide our approach to education and student development
+                The principles that guide our approach to education and student
+                development
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
@@ -129,7 +140,9 @@ export default function AboutPage() {
                 <Card key={index}>
                   <CardContent className="p-6 text-center">
                     <value.icon className="h-12 w-12 mx-auto mb-4 text-primary" />
-                    <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
+                    <h3 className="text-xl font-semibold mb-3">
+                      {value.title}
+                    </h3>
                     <p className="text-muted-foreground">{value.description}</p>
                   </CardContent>
                 </Card>
@@ -144,7 +157,8 @@ export default function AboutPage() {
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">Meet Our Team</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Experienced educators and industry professionals dedicated to your success
+                Experienced educators and industry professionals dedicated to
+                your success
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
@@ -158,12 +172,18 @@ export default function AboutPage() {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
+                    <h3 className="text-xl font-semibold mb-2">
+                      {member.name}
+                    </h3>
                     <Badge variant="secondary" className="mb-2">
                       {member.position}
                     </Badge>
-                    <p className="text-sm text-muted-foreground mb-1">{member.qualification}</p>
-                    <p className="text-sm text-muted-foreground">{member.experience}</p>
+                    <p className="text-sm text-muted-foreground mb-1">
+                      {member.qualification}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {member.experience}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -175,7 +195,9 @@ export default function AboutPage() {
         <section className="py-12 md:py-16">
           <div className="container px-4 md:px-6">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Why Choose EduInstitute?</h2>
+              <h2 className="text-3xl font-bold mb-4">
+                Why Choose EduInstitute?
+              </h2>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
@@ -186,7 +208,8 @@ export default function AboutPage() {
                   <div>
                     <h3 className="font-semibold mb-2">Expert Faculty</h3>
                     <p className="text-muted-foreground">
-                      Learn from experienced professionals with deep industry knowledge and teaching expertise.
+                      Learn from experienced professionals with deep industry
+                      knowledge and teaching expertise.
                     </p>
                   </div>
                 </div>
@@ -195,9 +218,12 @@ export default function AboutPage() {
                     <span className="text-primary font-semibold">2</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-2">Modern Infrastructure</h3>
+                    <h3 className="font-semibold mb-2">
+                      Modern Infrastructure
+                    </h3>
                     <p className="text-muted-foreground">
-                      State-of-the-art facilities with latest technology and comfortable learning environment.
+                      State-of-the-art facilities with latest technology and
+                      comfortable learning environment.
                     </p>
                   </div>
                 </div>
@@ -206,9 +232,12 @@ export default function AboutPage() {
                     <span className="text-primary font-semibold">3</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-2">Personalized Attention</h3>
+                    <h3 className="font-semibold mb-2">
+                      Personalized Attention
+                    </h3>
                     <p className="text-muted-foreground">
-                      Small batch sizes ensure individual attention and customized learning approaches.
+                      Small batch sizes ensure individual attention and
+                      customized learning approaches.
                     </p>
                   </div>
                 </div>
@@ -219,9 +248,12 @@ export default function AboutPage() {
                     <span className="text-primary font-semibold">4</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-2">Comprehensive Study Material</h3>
+                    <h3 className="font-semibold mb-2">
+                      Comprehensive Study Material
+                    </h3>
                     <p className="text-muted-foreground">
-                      Well-researched notes, assignments, and practice materials for thorough preparation.
+                      Well-researched notes, assignments, and practice materials
+                      for thorough preparation.
                     </p>
                   </div>
                 </div>
@@ -232,7 +264,8 @@ export default function AboutPage() {
                   <div>
                     <h3 className="font-semibold mb-2">Regular Assessment</h3>
                     <p className="text-muted-foreground">
-                      Continuous evaluation through tests and assignments to track progress effectively.
+                      Continuous evaluation through tests and assignments to
+                      track progress effectively.
                     </p>
                   </div>
                 </div>
@@ -243,7 +276,8 @@ export default function AboutPage() {
                   <div>
                     <h3 className="font-semibold mb-2">Career Guidance</h3>
                     <p className="text-muted-foreground">
-                      Professional counseling and career guidance to help students make informed decisions.
+                      Professional counseling and career guidance to help
+                      students make informed decisions.
                     </p>
                   </div>
                 </div>
@@ -254,5 +288,5 @@ export default function AboutPage() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }
