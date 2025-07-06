@@ -2,8 +2,8 @@
 
 import React from "react";
 import { useState } from "react";
-import { Header } from "../components/Header";
-import { Footer } from "../components/footer";
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
