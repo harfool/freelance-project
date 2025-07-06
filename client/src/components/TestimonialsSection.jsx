@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card, CardContent } from "../components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 import { Star } from "lucide-react";
 
 const testimonials = [
@@ -32,7 +32,7 @@ const testimonials = [
   },
 ];
 
-export function TestimonialsSection() {
+export default function TestimonialsSection() {
   return (
     <section className="py-12 md:py-24 lg:py-32">
       <div className="container px-4 md:px-6">
@@ -49,7 +49,7 @@ export function TestimonialsSection() {
         <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
           {testimonials.map((testimonial) => (
             <Card key={testimonial.id}>
-              <CardContent className="p-6 space-y-4">
+              <CardContent className="p-6 mt-5 space-y-4">
                 <div className="flex items-center space-x-1">
                   {[...Array(5)].map((_, i) => (
                     <Star

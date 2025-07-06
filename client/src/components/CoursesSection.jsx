@@ -84,7 +84,7 @@ export default function CoursesSection() {
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-xl">{course.title}</CardTitle>
-                  <Badge variant="secondary">{course.level}</Badge>
+                  <Badge variant="secondary bg-[#F7F7F7]">{course.level}</Badge>
                 </div>
                 <CardDescription className="text-sm">
                   {course.description}
@@ -111,7 +111,7 @@ export default function CoursesSection() {
                     </span>
                   </div>
                 </div>
-                <Button asChild={false} className="w-full">
+                <Button asChild={false} className="w-full text-white cursor-pointer bg-black hover:bg-zinc-800">
                   <Link to={course.href}>Learn More</Link>
                 </Button>
               </CardContent>
