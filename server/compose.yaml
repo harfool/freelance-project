@@ -1,0 +1,17 @@
+services:
+    mongo-db:
+        image: mongo:8.0.9
+        container_name: mongo-db
+        ports:
+            - 27019:27017
+        volumes:
+            - mongodb-data:/data/db
+        networks:
+            - freelance-network
+
+
+volumes:
+    mongodb-data:
+
+networks:
+    freelance-network:
