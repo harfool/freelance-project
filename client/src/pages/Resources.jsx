@@ -18,6 +18,7 @@ import {
   Calendar,
   Eye,
 } from "lucide-react";
+import { Outlet } from "react-router-dom";
 
 const studyMaterials = [
   {
@@ -333,6 +334,7 @@ export default function NotesPage() {
           </div>
         </section>
       </main>
+      <Outlet />
       <Footer />
     </div>
   );

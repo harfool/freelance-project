@@ -10,6 +10,11 @@ import Results from "./pages/Results.jsx";
 import Scholarship from "./pages/Scholarship.jsx";
 import About from "./pages/About.jsx";
 import Courses from "./pages/Courses.jsx";
+import Notes from "./pages/Notes.jsx";
+import Paper from "./pages/Paper.jsx";
+import Gallery from "./pages/Gallery.jsx";
+import Contact from "./pages/Contact.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
 
 const App = () => {
   return (
@@ -20,12 +25,18 @@ const App = () => {
           <Route path="/" element={<HeroSection />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/resources" element={<Resources />} />
+          <Route path="/resources" element={<Resources />}>
+            <Route path="notes" element={<Notes />} />
+            <Route path="papers" element={<Paper />} />
+          </Route>
           <Route path="/tests" element={<Tests />} />
           <Route path="/results" element={<Results />} />
           <Route path="/scholarship" element={<Scholarship />} />
           <Route path="/about" element={<About />} />
           <Route path="/courses" element={<Courses />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </BrowserRouter>
     </div>

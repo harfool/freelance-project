@@ -84,14 +84,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  to="/resources/software"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Software Downloads
-                </Link>
-              </li>
-              <li>
-                <Link
                   to="/gallery"
                   className="text-muted-foreground hover:text-foreground"
                 >

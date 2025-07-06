@@ -1,8 +1,8 @@
-import { Header } from "../components/header"
-import { Footer } from "../components/footer"
-import { Card, CardContent } from "../components/ui/card"
-import { Badge } from "../components/ui/badge"
-import { Calendar, Users, Award, BookOpen } from "lucide-react"
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
+import { Card, CardContent } from "../components/ui/card";
+import { Badge } from "../components/ui/badge";
+import { Calendar, Users, Award, BookOpen } from "lucide-react";
 
 const galleryItems = [
   {
@@ -77,7 +77,7 @@ const galleryItems = [
     category: "Exhibition",
     date: "2023-04-22",
   },
-]
+];
 
 const categories = [
   "All",
@@ -89,20 +89,22 @@ const categories = [
   "Academics",
   "Sports",
   "Exhibition",
-]
+];
 
 export default function GalleryPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="py-12 md:py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-4">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Gallery</h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                Gallery
+              </h1>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                Explore our campus life, events, and achievements through our photo gallery
+                Explore our campus life, events, and achievements through our
+                photo gallery
               </p>
             </div>
           </div>
@@ -130,7 +132,10 @@ export default function GalleryPage() {
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {galleryItems.map((item) => (
-                <Card key={item.id} className="overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow">
+                <Card
+                  key={item.id}
+                  className="overflow-hidden group cursor-pointer hover:shadow-lg transition-shadow"
+                >
                   <div className="aspect-video overflow-hidden">
                     <img
                       src={item.image || "/placeholder.svg"}
@@ -147,7 +152,9 @@ export default function GalleryPage() {
                       </div>
                     </div>
                     <h3 className="font-semibold mb-2">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {item.description}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -160,7 +167,9 @@ export default function GalleryPage() {
           <div className="container px-4 md:px-6">
             <div className="text-center mb-8">
               <h2 className="text-2xl font-bold mb-4">Our Achievements</h2>
-              <p className="text-muted-foreground">Numbers that speak for our success</p>
+              <p className="text-muted-foreground">
+                Numbers that speak for our success
+              </p>
             </div>
 
             <div className="grid md:grid-cols-4 gap-6">
@@ -168,28 +177,36 @@ export default function GalleryPage() {
                 <CardContent className="p-6 text-center">
                   <Users className="h-12 w-12 mx-auto mb-4 text-primary" />
                   <div className="text-2xl font-bold mb-2">2000+</div>
-                  <div className="text-sm text-muted-foreground">Students Graduated</div>
+                  <div className="text-sm text-muted-foreground">
+                    Students Graduated
+                  </div>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-6 text-center">
                   <Award className="h-12 w-12 mx-auto mb-4 text-green-600" />
                   <div className="text-2xl font-bold mb-2">150+</div>
-                  <div className="text-sm text-muted-foreground">Awards Won</div>
+                  <div className="text-sm text-muted-foreground">
+                    Awards Won
+                  </div>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-6 text-center">
                   <BookOpen className="h-12 w-12 mx-auto mb-4 text-blue-600" />
                   <div className="text-2xl font-bold mb-2">50+</div>
-                  <div className="text-sm text-muted-foreground">Events Organized</div>
+                  <div className="text-sm text-muted-foreground">
+                    Events Organized
+                  </div>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-6 text-center">
                   <Calendar className="h-12 w-12 mx-auto mb-4 text-purple-600" />
                   <div className="text-2xl font-bold mb-2">10+</div>
-                  <div className="text-sm text-muted-foreground">Years of Excellence</div>
+                  <div className="text-sm text-muted-foreground">
+                    Years of Excellence
+                  </div>
                 </CardContent>
               </Card>
             </div>
@@ -198,5 +215,5 @@ export default function GalleryPage() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

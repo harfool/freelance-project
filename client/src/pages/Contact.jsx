@@ -38,7 +38,6 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="py-12 md:py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
