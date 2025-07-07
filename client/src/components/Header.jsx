@@ -24,12 +24,6 @@ export default function Header() {
             Home
           </Link>
           <Link
-            to="/courses"
-            className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-4 py-2 rounded"
-          >
-            Courses
-          </Link>
-          <Link
             to="/resources"
             className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-4 py-2 rounded"
           >
@@ -68,7 +62,7 @@ export default function Header() {
             </Link>
           </Button>
           <Button size="sm" asChild className="hidden md:flex">
-            <Link to="/dashboard">
+            <Link to="/register">
               <User className="h-4 w-4 mr-2" />
               SignUp
             </Link>
