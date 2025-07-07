@@ -15,11 +15,13 @@ import Paper from "./pages/Paper.jsx";
 import Gallery from "./pages/Gallery.jsx";
 import Contact from "./pages/Contact.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 const App = () => {
   return (
     <div>
       <BrowserRouter>
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<HeroSection />} />
