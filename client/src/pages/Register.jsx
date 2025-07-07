@@ -234,12 +234,12 @@ export default function RegisterPage() {
                   className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 >
                   I agree to the{" "}
-                  <Link href="/terms" className="text-primary hover:underline">
+                  <Link to="/terms" className="text-primary hover:underline">
                     Terms and Conditions
                   </Link>{" "}
                   and{" "}
                   <Link
-                    href="/privacy"
+                    to="/privacy"
                     className="text-primary hover:underline"
                   >
                     Privacy Policy
@@ -247,7 +247,11 @@ export default function RegisterPage() {
                 </label>
               </div>
 
-              <Button type="submit" className="w-full" disabled={isLoading}>
+              <Button
+                type="submit"
+                className="w-full bg-black text-white hover:bg-neutral-900 cursor-pointer"
+                disabled={isLoading}
+              >
                 {isLoading ? "Creating Account..." : "Create Account"}
               </Button>
             </form>
@@ -256,7 +260,7 @@ export default function RegisterPage() {
               <span className="text-muted-foreground">
                 Already have an account?{" "}
               </span>
-              <Link href="/login" className="text-primary hover:underline">
+              <Link to="/login" className="text-primary hover:underline">
                 Sign in here
               </Link>
             </div>
