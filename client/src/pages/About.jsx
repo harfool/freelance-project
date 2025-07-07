@@ -77,9 +77,12 @@ export default function AboutPage() {
         {/* Stats Section */}
         <section className="py-12 md:py-16">
           <div className="container px-4 md:px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
-                <Card key={index} className="text-center">
+                <Card
+                  key={index}
+                  className="text-center shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200 rounded-xl"
+                >
                   <CardContent className="p-6">
                     <stat.icon className="h-12 w-12 mx-auto mb-4 text-primary" />
                     <h3 className="text-2xl font-bold mb-2">{stat.value}</h3>
@@ -97,7 +100,7 @@ export default function AboutPage() {
         <section className="py-12 md:py-16 bg-muted/50">
           <div className="container px-4 md:px-6">
             <div className="grid md:grid-cols-2 gap-8">
-              <Card>
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200 rounded-xl">
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
                   <p className="text-muted-foreground leading-relaxed">
@@ -109,7 +112,7 @@ export default function AboutPage() {
                   </p>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200 rounded-xl">
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
                   <p className="text-muted-foreground leading-relaxed">
@@ -137,7 +140,10 @@ export default function AboutPage() {
             </div>
             <div className="grid md:grid-cols-3 gap-8">
               {values.map((value, index) => (
-                <Card key={index}>
+                <Card
+                  key={index}
+                  className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200 rounded-xl"
+                >
                   <CardContent className="p-6 text-center">
                     <value.icon className="h-12 w-12 mx-auto mb-4 text-primary" />
                     <h3 className="text-xl font-semibold mb-3">
@@ -163,9 +169,12 @@ export default function AboutPage() {
             </div>
             <div className="grid md:grid-cols-3 gap-8">
               {team.map((member, index) => (
-                <Card key={index}>
+                <Card
+                  key={index}
+                  className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200 rounded-xl"
+                >
                   <CardContent className="p-6 text-center">
-                    <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-muted overflow-hidden">
+                    <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-muted overflow-hidden border-4 border-primary/20">
                       <img
                         src={member.image || "/placeholder.svg"}
                         alt={member.name}
@@ -202,8 +211,8 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <span className="text-primary font-semibold">1</span>
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 text-lg font-bold text-primary shadow">
+                    1
                   </div>
                   <div>
                     <h3 className="font-semibold mb-2">Expert Faculty</h3>
@@ -214,8 +223,8 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <span className="text-primary font-semibold">2</span>
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 text-lg font-bold text-primary shadow">
+                    2
                   </div>
                   <div>
                     <h3 className="font-semibold mb-2">
@@ -228,8 +237,8 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <span className="text-primary font-semibold">3</span>
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 text-lg font-bold text-primary shadow">
+                    3
                   </div>
                   <div>
                     <h3 className="font-semibold mb-2">
@@ -244,8 +253,8 @@ export default function AboutPage() {
               </div>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <span className="text-primary font-semibold">4</span>
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 text-lg font-bold text-primary shadow">
+                    4
                   </div>
                   <div>
                     <h3 className="font-semibold mb-2">
@@ -258,8 +267,8 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <span className="text-primary font-semibold">5</span>
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 text-lg font-bold text-primary shadow">
+                    5
                   </div>
                   <div>
                     <h3 className="font-semibold mb-2">Regular Assessment</h3>
@@ -270,8 +279,8 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <span className="text-primary font-semibold">6</span>
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 text-lg font-bold text-primary shadow">
+                    6
                   </div>
                   <div>
                     <h3 className="font-semibold mb-2">Career Guidance</h3>

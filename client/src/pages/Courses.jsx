@@ -164,7 +164,10 @@ export default function CoursesPage() {
           <div className="container px-4 md:px-6">
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {courses.map((course) => (
-                <Card key={course.id} className="flex flex-col h-full">
+                <Card
+                  key={course.id}
+                  className="flex flex-col h-full shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200"
+                >
                   <CardHeader>
                     <div className="flex items-center justify-between mb-2">
                       <Badge variant="secondary">{course.level}</Badge>
@@ -175,7 +178,9 @@ export default function CoursesPage() {
                         </span>
                       </div>
                     </div>
-                    <CardTitle className="text-xl">{course.title}</CardTitle>
+                    <CardTitle className="text-xl font-bold">
+                      {course.title}
+                    </CardTitle>
                     <CardDescription className="text-sm font-medium text-primary">
                       {course.fullName}
                     </CardDescription>
@@ -183,7 +188,6 @@ export default function CoursesPage() {
                       {course.description}
                     </p>
                   </CardHeader>
-
                   <CardContent className="flex-1 space-y-4">
                     <div className="grid grid-cols-3 gap-4 text-sm">
                       <div className="flex items-center space-x-1">
@@ -205,7 +209,6 @@ export default function CoursesPage() {
                         </span>
                       </div>
                     </div>
-
                     <div className="space-y-2">
                       <h4 className="font-semibold text-sm">
                         Course Features:
@@ -224,7 +227,6 @@ export default function CoursesPage() {
                         ))}
                       </ul>
                     </div>
-
                     <div className="flex items-center justify-between pt-4 border-t">
                       <div>
                         <span className="text-2xl font-bold text-primary">
@@ -234,7 +236,10 @@ export default function CoursesPage() {
                           / course
                         </span>
                       </div>
-                      <Button asChild>
+                      <Button
+                        asChild
+                        className="bg-black text-white hover:bg-neutral-900 cursor-pointer"
+                      >
                         <Link href={course.href}>Learn More</Link>
                       </Button>
                     </div>
@@ -258,8 +263,8 @@ export default function CoursesPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <Card>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200 rounded-xl">
                 <CardContent className="p-6 text-center">
                   <BookOpen className="h-12 w-12 mx-auto mb-4 text-primary" />
                   <h3 className="font-semibold mb-2">
@@ -272,7 +277,7 @@ export default function CoursesPage() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200 rounded-xl">
                 <CardContent className="p-6 text-center">
                   <Users className="h-12 w-12 mx-auto mb-4 text-primary" />
                   <h3 className="font-semibold mb-2">Expert Faculty</h3>
@@ -283,7 +288,7 @@ export default function CoursesPage() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200 rounded-xl">
                 <CardContent className="p-6 text-center">
                   <CheckCircle className="h-12 w-12 mx-auto mb-4 text-primary" />
                   <h3 className="font-semibold mb-2">Practical Learning</h3>
@@ -294,7 +299,7 @@ export default function CoursesPage() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200 rounded-xl">
                 <CardContent className="p-6 text-center">
                   <Star className="h-12 w-12 mx-auto mb-4 text-primary" />
                   <h3 className="font-semibold mb-2">High Success Rate</h3>

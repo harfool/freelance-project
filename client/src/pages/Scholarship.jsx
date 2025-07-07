@@ -185,8 +185,8 @@ export default function ScholarshipPage() {
         {/* Statistics */}
         <section className="py-12 md:py-16">
           <div className="container px-4 md:px-6">
-            <div className="grid md:grid-cols-4 gap-6 mb-12">
-              <Card>
+            <div className="grid md:grid-cols-4 gap-8 mb-12">
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
                 <CardContent className="p-6 text-center">
                   <Award className="h-12 w-12 mx-auto mb-4 text-primary" />
                   <div className="text-2xl font-bold mb-2">₹1.2 Cr</div>
@@ -195,7 +195,7 @@ export default function ScholarshipPage() {
                   </div>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
                 <CardContent className="p-6 text-center">
                   <Users className="h-12 w-12 mx-auto mb-4 text-green-600" />
                   <div className="text-2xl font-bold mb-2">850+</div>
@@ -204,7 +204,7 @@ export default function ScholarshipPage() {
                   </div>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
                 <CardContent className="p-6 text-center">
                   <FileText className="h-12 w-12 mx-auto mb-4 text-blue-600" />
                   <div className="text-2xl font-bold mb-2">15</div>
@@ -213,7 +213,7 @@ export default function ScholarshipPage() {
                   </div>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
                 <CardContent className="p-6 text-center">
                   <Calendar className="h-12 w-12 mx-auto mb-4 text-purple-600" />
                   <div className="text-2xl font-bold mb-2">5</div>
@@ -239,9 +239,12 @@ export default function ScholarshipPage() {
               </p>
             </div>
 
-            <div className="grid gap-6 lg:grid-cols-2">
+            <div className="grid gap-8 lg:grid-cols-2">
               {scholarships.map((scholarship) => (
-                <Card key={scholarship.id} className="h-full">
+                <Card
+                  key={scholarship.id}
+                  className="h-full shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200"
+                >
                   <CardHeader>
                     <div className="flex items-center justify-between mb-2">
                       <Badge variant="outline">{scholarship.category}</Badge>
@@ -257,7 +260,7 @@ export default function ScholarshipPage() {
                         {scholarship.status}
                       </Badge>
                     </div>
-                    <CardTitle className="text-xl">
+                    <CardTitle className="text-xl font-bold">
                       {scholarship.title}
                     </CardTitle>
                     <CardDescription>{scholarship.description}</CardDescription>
@@ -337,7 +340,10 @@ export default function ScholarshipPage() {
                         <strong>Application Process:</strong>{" "}
                         {scholarship.applicationProcess}
                       </p>
-                      <Button className="w-full" asChild>
+                      <Button
+                        className="w-full bg-black text-white hover:bg-neutral-900 cursor-pointer"
+                        asChild
+                      >
                         <Link href="/login">Apply Now</Link>
                       </Button>
                     </div>
@@ -361,8 +367,11 @@ export default function ScholarshipPage() {
             <div className="max-w-4xl mx-auto">
               <div className="space-y-8">
                 {applicationSteps.map((step, index) => (
-                  <div key={step.step} className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold">
+                  <div
+                    key={step.step}
+                    className="flex items-start space-x-4 relative"
+                  >
+                    <div className="flex-shrink-0 w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-lg shadow">
                       {step.step}
                     </div>
                     <div className="flex-1">
@@ -390,8 +399,8 @@ export default function ScholarshipPage() {
               <h2 className="text-2xl font-bold mb-4">Important Information</h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              <Card>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
                 <CardContent className="p-6">
                   <h3 className="font-semibold mb-4 flex items-center">
                     <AlertCircle className="h-5 w-5 mr-2 text-amber-600" />
@@ -412,7 +421,7 @@ export default function ScholarshipPage() {
                 </CardContent>
               </Card>
 
-              <Card>
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
                 <CardContent className="p-6">
                   <h3 className="font-semibold mb-4 flex items-center">
                     <FileText className="h-5 w-5 mr-2 text-blue-600" />
@@ -430,7 +439,11 @@ export default function ScholarshipPage() {
             </div>
 
             <div className="text-center mt-8">
-              <Button variant="outline" size="lg" className="bg-transparent">
+              <Button
+                variant="outline"
+                size="lg"
+                className="bg-transparent border-black text-black hover:bg-gray-100 cursor-pointer"
+              >
                 <Download className="h-4 w-4 mr-2" />
                 Download Application Form
               </Button>
@@ -441,7 +454,7 @@ export default function ScholarshipPage() {
         {/* Contact for Help */}
         <section className="py-12 md:py-16">
           <div className="container px-4 md:px-6">
-            <Card className="max-w-2xl mx-auto text-center">
+            <Card className="max-w-2xl mx-auto text-center shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
               <CardContent className="p-8">
                 <h3 className="text-xl font-semibold mb-4">
                   Need Help with Your Application?
@@ -461,7 +474,10 @@ export default function ScholarshipPage() {
                     <strong>Office Hours:</strong> Mon-Fri, 9:00 AM - 5:00 PM
                   </p>
                 </div>
-                <Button asChild>
+                <Button
+                  className="bg-black text-white hover:bg-neutral-900 cursor-pointer"
+                  asChild
+                >
                   <Link href="/contact">Contact Us</Link>
                 </Button>
               </CardContent>

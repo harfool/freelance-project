@@ -132,9 +132,9 @@ export default function ResultsPage() {
         <section className="py-12 md:py-16">
           <div className="container px-4 md:px-6">
             <div className="max-w-2xl mx-auto">
-              <Card>
+              <Card className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
                 <CardHeader>
-                  <CardTitle className="text-center">
+                  <CardTitle className="text-center text-2xl font-bold">
                     Search Your Result
                   </CardTitle>
                   <CardDescription className="text-center">
@@ -162,7 +162,7 @@ export default function ResultsPage() {
                     </div>
                     <Button
                       type="submit"
-                      className="w-full"
+                      className="w-full bg-black text-white hover:bg-neutral-900 cursor-pointer"
                       disabled={isSearching}
                     >
                       {isSearching ? "Searching..." : "Search Result"}
@@ -179,11 +179,11 @@ export default function ResultsPage() {
           <section className="py-8">
             <div className="container px-4 md:px-6">
               <div className="max-w-4xl mx-auto">
-                <Card>
+                <Card className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
                   <CardHeader>
                     <div className="flex items-center justify-between">
                       <div>
-                        <CardTitle className="text-xl">
+                        <CardTitle className="text-xl font-bold">
                           Examination Result
                         </CardTitle>
                         <CardDescription>
@@ -278,7 +278,7 @@ export default function ResultsPage() {
                         Score Details
                       </h3>
                       <div className="grid md:grid-cols-4 gap-4">
-                        <Card>
+                        <Card className="shadow border-0 bg-white/90">
                           <CardContent className="p-4 text-center">
                             <div className="text-2xl font-bold text-primary">
                               {searchResult.score}
@@ -288,7 +288,7 @@ export default function ResultsPage() {
                             </div>
                           </CardContent>
                         </Card>
-                        <Card>
+                        <Card className="shadow border-0 bg-white/90">
                           <CardContent className="p-4 text-center">
                             <div className="text-2xl font-bold">
                               {searchResult.totalMarks}
@@ -298,7 +298,7 @@ export default function ResultsPage() {
                             </div>
                           </CardContent>
                         </Card>
-                        <Card>
+                        <Card className="shadow border-0 bg-white/90">
                           <CardContent className="p-4 text-center">
                             <div className="text-2xl font-bold text-green-600">
                               {searchResult.percentage}%
@@ -308,7 +308,7 @@ export default function ResultsPage() {
                             </div>
                           </CardContent>
                         </Card>
-                        <Card>
+                        <Card className="shadow border-0 bg-white/90">
                           <CardContent className="p-4 text-center">
                             <div className="text-2xl font-bold text-blue-600">
                               {searchResult.grade}
@@ -325,14 +325,14 @@ export default function ResultsPage() {
                     <div className="flex gap-4 pt-4 border-t">
                       <Button
                         onClick={() => handleDownload(searchResult.resultFile)}
-                        className="flex-1"
+                        className="flex-1 bg-black text-white hover:bg-neutral-900 cursor-pointer"
                       >
                         <Download className="h-4 w-4 mr-2" />
                         Download Result PDF
                       </Button>
                       <Button
                         variant="outline"
-                        className="flex-1 bg-transparent"
+                        className="flex-1 bg-transparent border-black text-black hover:bg-gray-100 cursor-pointer"
                       >
                         <Eye className="h-4 w-4 mr-2" />
                         View Detailed Analysis
@@ -355,9 +355,12 @@ export default function ResultsPage() {
               </p>
             </div>
 
-            <div className="grid gap-4 max-w-4xl mx-auto">
+            <div className="grid gap-6 max-w-4xl mx-auto">
               {mockResults.slice(0, 3).map((result) => (
-                <Card key={result.id}>
+                <Card
+                  key={result.id}
+                  className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200"
+                >
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div className="space-y-1">
@@ -402,15 +405,15 @@ export default function ResultsPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-              <Card>
+            <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
                 <CardContent className="p-6 text-center">
                   <Award className="h-12 w-12 mx-auto mb-4 text-primary" />
                   <div className="text-2xl font-bold mb-2">95%</div>
                   <div className="text-sm text-muted-foreground">Pass Rate</div>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
                 <CardContent className="p-6 text-center">
                   <div className="text-2xl font-bold mb-2 text-green-600">
                     82%
@@ -420,7 +423,7 @@ export default function ResultsPage() {
                   </div>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
                 <CardContent className="p-6 text-center">
                   <div className="text-2xl font-bold mb-2 text-blue-600">
                     1,250
@@ -430,7 +433,7 @@ export default function ResultsPage() {
                   </div>
                 </CardContent>
               </Card>
-              <Card>
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
                 <CardContent className="p-6 text-center">
                   <div className="text-2xl font-bold mb-2 text-purple-600">
                     45

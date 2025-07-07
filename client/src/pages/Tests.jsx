@@ -145,8 +145,8 @@ export default function TestsPage() {
         {/* Filters Section */}
         <section className="py-8 border-b">
           <div className="container px-4 md:px-6">
-            <div className="flex flex-col md:flex-row gap-4 items-center">
-              <div className="relative flex-1 max-w-md">
+            <div className="flex flex-col gap-4 items-center w-full max-w-2xl mx-auto">
+              <div className="relative w-full">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   placeholder="Search tests..."
@@ -155,8 +155,7 @@ export default function TestsPage() {
                   className="pl-10"
                 />
               </div>
-
-              <div className="flex gap-4 items-center">
+              <div className="flex flex-col sm:flex-row gap-4 w-full justify-between">
                 <div className="flex items-center gap-2">
                   <Filter className="h-4 w-4 text-muted-foreground" />
                   <span className="text-sm font-medium">Course:</span>
@@ -172,7 +171,6 @@ export default function TestsPage() {
                     ))}
                   </select>
                 </div>
-
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-medium">Level:</span>
                   <select
@@ -204,10 +202,13 @@ export default function TestsPage() {
                 </p>
               </div>
             ) : (
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {filteredTests.map((test) => (
-                  <Card key={test.id} className="flex flex-col h-full">
-                    <CardHeader>
+                  <Card
+                    key={test.id}
+                    className="flex flex-col h-full shadow-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-200 bg-white rounded-xl"
+                  >
+                    <CardHeader className="pb-2">
                       <div className="flex items-center justify-between mb-2">
                         <Badge variant="outline">{test.course}</Badge>
                         <div className="flex gap-2">
@@ -227,8 +228,12 @@ export default function TestsPage() {
                           )}
                         </div>
                       </div>
-                      <CardTitle className="text-lg">{test.title}</CardTitle>
-                      <CardDescription>{test.description}</CardDescription>
+                      <CardTitle className="text-lg line-clamp-2 leading-tight mb-1">
+                        {test.title}
+                      </CardTitle>
+                      <CardDescription className="line-clamp-2 text-sm mb-1">
+                        {test.description}
+                      </CardDescription>
                     </CardHeader>
 
                     <CardContent className="flex-1 space-y-4">
@@ -270,9 +275,12 @@ export default function TestsPage() {
                         </div>
                       </div>
 
-                      <div className="pt-4 border-t">
+                      <div className="pt-4 border-t space-y-2">
                         {test.isDemo ? (
-                          <Button className="w-full" asChild>
+                          <Button
+                            className="w-full bg-black text-white hover:bg-neutral-900 cursor-pointer"
+                            asChild
+                          >
                             <Link href={`/tests/${test.id}/demo`}>
                               <Play className="h-4 w-4 mr-2" />
                               Start Demo Test
@@ -281,8 +289,9 @@ export default function TestsPage() {
                         ) : (
                           <Button
                             variant="outline"
-                            className="w-full bg-transparent"
+                            className="w-full bg-gray-200 text-gray-500 cursor-not-allowed"
                             asChild
+                            disabled
                           >
                             <Link href="/login">Login to Take Test</Link>
                           </Button>
@@ -307,11 +316,13 @@ export default function TestsPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="font-semibold mb-3">Before Starting</h3>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
+                <CardContent className="p-8 text-center flex flex-col items-center">
+                  <h3 className="font-semibold mb-3 text-lg">
+                    Before Starting
+                  </h3>
+                  <ul className="space-y-2 text-sm text-muted-foreground text-left">
                     <li>• Ensure stable internet connection</li>
                     <li>• Use a desktop or laptop for better experience</li>
                     <li>• Keep your login credentials ready</li>
@@ -320,10 +331,12 @@ export default function TestsPage() {
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="font-semibold mb-3">During the Test</h3>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
+                <CardContent className="p-8 text-center flex flex-col items-center">
+                  <h3 className="font-semibold mb-3 text-lg">
+                    During the Test
+                  </h3>
+                  <ul className="space-y-2 text-sm text-muted-foreground text-left">
                     <li>• Read each question carefully</li>
                     <li>• You can navigate between questions</li>
                     <li>• Mark questions for review if needed</li>
@@ -332,10 +345,12 @@ export default function TestsPage() {
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="font-semibold mb-3">After Completion</h3>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
+                <CardContent className="p-8 text-center flex flex-col items-center">
+                  <h3 className="font-semibold mb-3 text-lg">
+                    After Completion
+                  </h3>
+                  <ul className="space-y-2 text-sm text-muted-foreground text-left">
                     <li>• Review your answers before submitting</li>
                     <li>• Results will be available immediately</li>
                     <li>• Download your score report</li>
