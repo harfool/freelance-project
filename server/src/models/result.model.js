@@ -9,13 +9,19 @@ const resultSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Test"
     },
+    answers: [
+        {
+            type: String,
+            required: true
+        }
+    ],
     totalMarks: {
         type: Number,
         required: true
     },
     percentage: {
-        type: Float32Array,
-        requried: true
+        type: Number,
+        required: true
     }
 }, { timestamps: true })
 
