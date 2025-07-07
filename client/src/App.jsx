@@ -18,6 +18,7 @@ import Dashboard from "./pages/Dashboard.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import Terms from "./pages/Terms.jsx";
 import Privacy from "./pages/Privacy.jsx";
+import TestDashboard from "./pages/TestDashboard.jsx";
 
 function AppRoutes() {
   const location = useLocation();
@@ -44,6 +45,7 @@ function AppRoutes() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/testDashboard" element={<TestDashboard />} />
       </Routes>
     </>
   );

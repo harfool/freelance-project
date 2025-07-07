@@ -1,11 +1,18 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Card, CardContent } from "../components/ui/card"
-import { Button } from "../components/ui/button"
-import { Badge } from "../components/ui/badge"
-import { Progress } from "../components/ui/progress"
-import { Clock, FileText, Play, CheckCircle, AlertCircle, Trophy } from "lucide-react"
+import { useState } from "react";
+import { Card, CardContent } from "../components/ui/card";
+import { Button } from "../components/ui/button";
+import { Badge } from "../components/ui/badge";
+import { Progress } from "../components/ui/progress";
+import {
+  Clock,
+  FileText,
+  Play,
+  CheckCircle,
+  AlertCircle,
+  Trophy,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 const availableTests = [
@@ -39,7 +46,7 @@ const availableTests = [
     status: "locked",
     difficulty: "Hard",
   },
-]
+];
 
 const completedTests = [
   {
@@ -62,10 +69,10 @@ const completedTests = [
     grade: "B",
     timeTaken: 30,
   },
-]
+];
 
 export default function StudentTestsPage() {
-  const [activeTab, setActiveTab] = useState("available")
+  const [activeTab, setActiveTab] = useState("available");
 
   return (
     <div className="min-h-screen bg-background">
@@ -74,7 +81,9 @@ export default function StudentTestsPage() {
         <div className="container flex h-16 items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold">Online Tests</h1>
-            <p className="text-sm text-muted-foreground">Practice tests and assessments</p>
+            <p className="text-sm text-muted-foreground">
+              Practice tests and assessments
+            </p>
           </div>
           <Button asChild>
             <Link href="/dashboard">Back to Dashboard</Link>
@@ -84,36 +93,52 @@ export default function StudentTestsPage() {
 
       <div className="container py-6">
         {/* Stats Overview */}
-        <div className="grid gap-4 md:grid-cols-4 mb-6">
-          <Card>
+        <div className="grid gap-8 md:grid-cols-4 mb-6">
+          <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200 rounded-xl">
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-muted-foreground">Available Tests</p>
-                  <p className="text-2xl font-bold">{availableTests.filter((t) => t.status === "available").length}</p>
+                  <p className="text-sm font-medium text-muted-foreground">
+                    Available Tests
+                  </p>
+                  <p className="text-2xl font-bold">
+                    {
+                      availableTests.filter((t) => t.status === "available")
+                        .length
+                    }
+                  </p>
                 </div>
                 <FileText className="h-8 w-8 text-primary" />
               </div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200 rounded-xl">
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-muted-foreground">Completed</p>
+                  <p className="text-sm font-medium text-muted-foreground">
+                    Completed
+                  </p>
                   <p className="text-2xl font-bold">{completedTests.length}</p>
                 </div>
                 <CheckCircle className="h-8 w-8 text-green-600" />
               </div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200 rounded-xl">
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-muted-foreground">Average Score</p>
+                  <p className="text-sm font-medium text-muted-foreground">
+                    Average Score
+                  </p>
                   <p className="text-2xl font-bold">
-                    {Math.round(completedTests.reduce((acc, test) => acc + test.percentage, 0) / completedTests.length)}
+                    {Math.round(
+                      completedTests.reduce(
+                        (acc, test) => acc + test.percentage,
+                        0
+                      ) / completedTests.length
+                    )}
                     %
                   </p>
                 </div>
@@ -121,21 +146,26 @@ export default function StudentTestsPage() {
               </div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200 rounded-xl">
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-muted-foreground">Best Score</p>
-                  <p className="text-2xl font-bold">{Math.max(...completedTests.map((test) => test.percentage))}%</p>
+                  <p className="text-sm font-medium text-muted-foreground">
+                    Best Score
+                  </p>
+                  <p className="text-2xl font-bold">
+                    {Math.max(...completedTests.map((test) => test.percentage))}
+                    %
+                  </p>
                 </div>
-                <Trophy className="h-8 w-8 text-gold-600" />
+                <Trophy className="h-8 w-8 text-purple-600" />
               </div>
             </CardContent>
           </Card>
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex space-x-1 mb-6 bg-muted p-1 rounded-lg w-fit">
+        <div className="flex space-x-1 mb-6 bg-muted p-1 rounded-lg w-fit shadow">
           <button
             onClick={() => setActiveTab("available")}
             className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
@@ -163,7 +193,10 @@ export default function StudentTestsPage() {
           <div className="space-y-4">
             <h2 className="text-xl font-semibold mb-4">Available Tests</h2>
             {availableTests.map((test) => (
-              <Card key={test.id}>
+              <Card
+                key={test.id}
+                className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200"
+              >
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div className="flex-1">
@@ -174,8 +207,8 @@ export default function StudentTestsPage() {
                             test.difficulty === "Easy"
                               ? "secondary"
                               : test.difficulty === "Medium"
-                                ? "default"
-                                : "destructive"
+                              ? "default"
+                              : "destructive"
                           }
                         >
                           {test.difficulty}
@@ -187,7 +220,9 @@ export default function StudentTestsPage() {
                           </Badge>
                         )}
                       </div>
-                      <p className="text-muted-foreground mb-3">{test.description}</p>
+                      <p className="text-muted-foreground mb-3">
+                        {test.description}
+                      </p>
                       <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                         <div className="flex items-center">
                           <Clock className="h-4 w-4 mr-1" />
@@ -202,12 +237,16 @@ export default function StudentTestsPage() {
                     </div>
                     <div className="flex space-x-2">
                       {test.status === "available" ? (
-                        <Button>
+                        <Button className="bg-black text-white hover:bg-neutral-900 cursor-pointer">
                           <Play className="h-4 w-4 mr-2" />
                           Start Test
                         </Button>
                       ) : (
-                        <Button disabled>
+                        <Button
+                          disabled
+                          variant="outline"
+                          className="bg-gray-200 text-gray-500 cursor-not-allowed"
+                        >
                           <AlertCircle className="h-4 w-4 mr-2" />
                           Locked
                         </Button>
@@ -225,14 +264,23 @@ export default function StudentTestsPage() {
           <div className="space-y-4">
             <h2 className="text-xl font-semibold mb-4">Completed Tests</h2>
             {completedTests.map((test) => (
-              <Card key={test.id}>
+              <Card
+                key={test.id}
+                className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200"
+              >
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div className="flex-1">
                       <div className="flex items-center space-x-2 mb-2">
                         <h3 className="font-semibold text-lg">{test.title}</h3>
                         <Badge
-                          variant={test.grade === "A" ? "default" : test.grade === "B" ? "secondary" : "destructive"}
+                          variant={
+                            test.grade === "A"
+                              ? "default"
+                              : test.grade === "B"
+                              ? "secondary"
+                              : "destructive"
+                          }
                         >
                           Grade {test.grade}
                         </Badge>
@@ -245,16 +293,22 @@ export default function StudentTestsPage() {
                           </p>
                         </div>
                         <div>
-                          <p className="text-sm text-muted-foreground">Percentage</p>
+                          <p className="text-sm text-muted-foreground">
+                            Percentage
+                          </p>
                           <p className="font-semibold">{test.percentage}%</p>
                         </div>
                         <div>
-                          <p className="text-sm text-muted-foreground">Time Taken</p>
+                          <p className="text-sm text-muted-foreground">
+                            Time Taken
+                          </p>
                           <p className="font-semibold">{test.timeTaken} min</p>
                         </div>
                         <div>
                           <p className="text-sm text-muted-foreground">Date</p>
-                          <p className="font-semibold">{new Date(test.completedDate).toLocaleDateString()}</p>
+                          <p className="font-semibold">
+                            {new Date(test.completedDate).toLocaleDateString()}
+                          </p>
                         </div>
                       </div>
                       <div className="space-y-2">
@@ -266,10 +320,18 @@ export default function StudentTestsPage() {
                       </div>
                     </div>
                     <div className="flex space-x-2 ml-4">
-                      <Button variant="outline" size="sm">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="border-black text-black hover:bg-gray-100 cursor-pointer"
+                      >
                         View Details
                       </Button>
-                      <Button variant="outline" size="sm">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="border-black text-black hover:bg-gray-100 cursor-pointer"
+                      >
                         Retake
                       </Button>
                     </div>
@@ -281,5 +343,5 @@ export default function StudentTestsPage() {
         )}
       </div>
     </div>
-  )
+  );
 }

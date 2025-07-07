@@ -238,14 +238,13 @@ export default function ScholarshipPage() {
                 students from different backgrounds
               </p>
             </div>
-
-            <div className="grid gap-8 lg:grid-cols-2">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {scholarships.map((scholarship) => (
                 <Card
                   key={scholarship.id}
-                  className="h-full shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200"
+                  className="h-full shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200 p-0"
                 >
-                  <CardHeader>
+                  <CardHeader className="pb-2">
                     <div className="flex items-center justify-between mb-2">
                       <Badge variant="outline">{scholarship.category}</Badge>
                       <Badge
@@ -260,93 +259,32 @@ export default function ScholarshipPage() {
                         {scholarship.status}
                       </Badge>
                     </div>
-                    <CardTitle className="text-xl font-bold">
+                    <CardTitle className="text-base font-semibold line-clamp-2 leading-tight mb-1">
                       {scholarship.title}
                     </CardTitle>
-                    <CardDescription>{scholarship.description}</CardDescription>
+                    <CardDescription className="line-clamp-2 text-xs mb-1">
+                      {scholarship.description}
+                    </CardDescription>
                   </CardHeader>
-
-                  <CardContent className="space-y-6">
-                    <div className="flex items-center justify-between p-4 bg-primary/5 rounded-lg">
-                      <span className="font-medium">Scholarship Amount</span>
-                      <span className="text-2xl font-bold text-primary">
+                  <CardContent className="flex flex-col gap-2">
+                    <div className="flex items-center justify-between bg-primary/5 rounded-lg px-3 py-2">
+                      <span className="text-xs font-medium">Amount</span>
+                      <span className="text-lg font-bold text-primary">
                         {scholarship.amount}
                       </span>
                     </div>
-
-                    <div className="space-y-3">
-                      <h4 className="font-semibold flex items-center">
-                        <CheckCircle className="h-4 w-4 mr-2 text-green-600" />
-                        Eligibility Criteria
-                      </h4>
-                      <ul className="space-y-1 ml-6">
-                        {scholarship.eligibility.map((criteria, index) => (
-                          <li
-                            key={index}
-                            className="text-sm text-muted-foreground flex items-start"
-                          >
-                            <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-2 flex-shrink-0"></span>
-                            {criteria}
-                          </li>
-                        ))}
-                      </ul>
+                    <div className="flex items-center justify-between text-xs text-muted-foreground px-1">
+                      <span>Deadline:</span>
+                      <span className="font-medium">
+                        {new Date(scholarship.deadline).toLocaleDateString()}
+                      </span>
                     </div>
-
-                    <div className="space-y-3">
-                      <h4 className="font-semibold flex items-center">
-                        <FileText className="h-4 w-4 mr-2 text-blue-600" />
-                        Required Documents
-                      </h4>
-                      <div className="flex flex-wrap gap-2 ml-6">
-                        {scholarship.documents.map((doc, index) => (
-                          <Badge
-                            key={index}
-                            variant="outline"
-                            className="text-xs"
-                          >
-                            {doc}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="space-y-3">
-                      <h4 className="font-semibold flex items-center">
-                        <Calendar className="h-4 w-4 mr-2 text-purple-600" />
-                        Important Dates
-                      </h4>
-                      <div className="ml-6 space-y-2">
-                        <div className="flex items-center justify-between text-sm">
-                          <span className="text-muted-foreground">
-                            Application Deadline:
-                          </span>
-                          <span className="font-medium">
-                            {new Date(
-                              scholarship.deadline
-                            ).toLocaleDateString()}
-                          </span>
-                        </div>
-                        {scholarship.status === "Closing Soon" && (
-                          <div className="flex items-center text-sm text-red-600">
-                            <AlertCircle className="h-4 w-4 mr-1" />
-                            <span>Deadline approaching!</span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="pt-4 border-t">
-                      <p className="text-sm text-muted-foreground mb-3">
-                        <strong>Application Process:</strong>{" "}
-                        {scholarship.applicationProcess}
-                      </p>
-                      <Button
-                        className="w-full bg-black text-white hover:bg-neutral-900 cursor-pointer"
-                        asChild
-                      >
-                        <Link href="/login">Apply Now</Link>
-                      </Button>
-                    </div>
+                    <Button
+                      className="w-full bg-black text-white hover:bg-neutral-900 cursor-pointer mt-2 py-2 text-sm"
+                      asChild
+                    >
+                      <Link href="/login">Apply Now</Link>
+                    </Button>
                   </CardContent>
                 </Card>
               ))}
