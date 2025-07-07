@@ -1,4 +1,4 @@
-import Header from "../components/Header.jsx";
+import React, { useState } from "react";
 import Footer from "../components/Footer.jsx";
 import {
   Card,
@@ -110,6 +110,21 @@ const courses = [
 const types = ["All", "Notes", "Assignment", "Reference", "Syllabus"];
 
 export default function NotesPage() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCourse, setSelectedCourse] = useState("All");
+  const [selectedType, setSelectedType] = useState("All");
+
+  const filteredMaterials = studyMaterials.filter((material) => {
+    const matchesSearch =
+      material.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      material.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCourse =
+      selectedCourse === "All" || material.course === selectedCourse;
+    const matchesType =
+      selectedType === "All" || material.type === selectedType;
+    return matchesSearch && matchesCourse && matchesType;
+  });
+
   return (
     <div className="min-h-screen flex flex-col">
       <main className="flex-1">
@@ -131,17 +146,26 @@ export default function NotesPage() {
         {/* Search and Filter */}
         <section className="py-8 border-b">
           <div className="container px-4 md:px-6">
-            <div className="flex flex-col md:flex-row gap-4 items-center">
-              <div className="relative flex-1 max-w-md">
+            <div className="flex flex-col gap-4 items-center w-full max-w-2xl mx-auto">
+              <div className="relative w-full">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input placeholder="Search materials..." className="pl-10" />
+                <Input
+                  placeholder="Search materials..."
+                  className="pl-10"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
               </div>
 
-              <div className="flex gap-4 items-center">
+              <div className="flex flex-col sm:flex-row gap-4 w-full justify-between">
                 <div className="flex items-center gap-2">
                   <Filter className="h-4 w-4 text-muted-foreground" />
                   <span className="text-sm font-medium">Course:</span>
-                  <select className="border rounded-md px-3 py-1 text-sm">
+                  <select
+                    className="border rounded-md px-3 py-1 text-sm"
+                    value={selectedCourse}
+                    onChange={(e) => setSelectedCourse(e.target.value)}
+                  >
                     {courses.map((course) => (
                       <option key={course} value={course}>
                         {course}
@@ -152,7 +176,11 @@ export default function NotesPage() {
 
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-medium">Type:</span>
-                  <select className="border rounded-md px-3 py-1 text-sm">
+                  <select
+                    className="border rounded-md px-3 py-1 text-sm"
+                    value={selectedType}
+                    onChange={(e) => setSelectedType(e.target.value)}
+                  >
                     {types.map((type) => (
                       <option key={type} value={type}>
                         {type}
@@ -168,16 +196,23 @@ export default function NotesPage() {
         {/* Materials Grid */}
         <section className="py-12 md:py-16">
           <div className="container px-4 md:px-6">
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {studyMaterials.map((material) => (
-                <Card key={material.id} className="flex flex-col h-full">
-                  <CardHeader>
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {filteredMaterials.map((material) => (
+                <Card
+                  key={material.id}
+                  className="flex flex-col h-full shadow-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-200 bg-white rounded-xl"
+                >
+                  <CardHeader className="pb-2">
                     <div className="flex items-center justify-between mb-2">
                       <Badge variant="outline">{material.course}</Badge>
                       <Badge variant="secondary">{material.type}</Badge>
                     </div>
-                    <CardTitle className="text-lg">{material.title}</CardTitle>
-                    <CardDescription>{material.description}</CardDescription>
+                    <CardTitle className="text-lg line-clamp-2 leading-tight mb-1">
+                      {material.title}
+                    </CardTitle>
+                    <CardDescription className="line-clamp-2 text-sm mb-1">
+                      {material.description}
+                    </CardDescription>
                   </CardHeader>
 
                   <CardContent className="flex-1 space-y-4">
@@ -209,13 +244,13 @@ export default function NotesPage() {
                     <div className="pt-4 border-t space-y-2">
                       {material.isPublic ? (
                         <>
-                          <Button className="w-full">
+                          <Button className="w-full bg-black text-white hover:bg-neutral-900 cursor-pointer">
                             <Download className="h-4 w-4 mr-2" />
                             Download
                           </Button>
                           <Button
                             variant="outline"
-                            className="w-full bg-transparent"
+                            className="w-full bg-transparent border-black text-black hover:bg-gray-100 cursor-pointer"
                           >
                             <Eye className="h-4 w-4 mr-2" />
                             Preview
@@ -224,7 +259,7 @@ export default function NotesPage() {
                       ) : (
                         <Button
                           variant="outline"
-                          className="w-full bg-transparent"
+                          className="w-full bg-gray-200 text-gray-500 cursor-not-allowed"
                           disabled
                         >
                           Login Required
@@ -234,6 +269,17 @@ export default function NotesPage() {
                   </CardContent>
                 </Card>
               ))}
+              {filteredMaterials.length === 0 && (
+                <div className="col-span-full text-center py-12">
+                  <FileText className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
+                  <h3 className="text-lg font-semibold mb-2">
+                    No materials found
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Try adjusting your search criteria
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -248,41 +294,46 @@ export default function NotesPage() {
               </p>
             </div>
 
-            <div className="grid gap-4 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
               {studyMaterials
                 .sort((a, b) => b.downloads - a.downloads)
                 .slice(0, 5)
                 .map((material, index) => (
-                  <Card key={material.id}>
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-4">
-                          <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                            <span className="text-primary font-semibold">
-                              {index + 1}
-                            </span>
-                          </div>
-                          <div>
-                            <h3 className="font-semibold">{material.title}</h3>
-                            <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-                              <Badge variant="outline" className="text-xs">
-                                {material.course}
-                              </Badge>
-                              <span>{material.downloads} downloads</span>
-                              <div className="flex items-center">
-                                <Calendar className="h-3 w-3 mr-1" />
-                                {new Date(
-                                  material.uploadDate
-                                ).toLocaleDateString()}
-                              </div>
+                  <Card
+                    key={material.id}
+                    className="flex flex-col h-full shadow-lg border border-gray-200 hover:shadow-2xl transition-shadow duration-200 bg-white rounded-xl"
+                  >
+                    <CardContent className="p-6 flex flex-col justify-between h-full">
+                      <div className="flex items-center space-x-4 mb-4">
+                        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-lg font-bold text-primary">
+                          {index + 1}
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-semibold text-base mb-1 line-clamp-1">
+                            {material.title}
+                          </h3>
+                          <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+                            <Badge variant="outline" className="text-xs">
+                              {material.course}
+                            </Badge>
+                            <span>{material.downloads} downloads</span>
+                            <div className="flex items-center">
+                              <Calendar className="h-3 w-3 mr-1" />
+                              {new Date(
+                                material.uploadDate
+                              ).toLocaleDateString()}
                             </div>
                           </div>
                         </div>
-                        <Button size="sm">
-                          <Download className="h-4 w-4 mr-2" />
-                          Download
-                        </Button>
                       </div>
+                      <Button
+                        size="sm"
+                        className="w-full bg-black text-white hover:bg-neutral-900 cursor-pointer mt-2"
+                        onClick={() => window.open("#", "_blank")}
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Download
+                      </Button>
                     </CardContent>
                   </Card>
                 ))}
@@ -291,42 +342,55 @@ export default function NotesPage() {
         </section>
 
         {/* Upload Guidelines */}
-        <section className="py-12 md:py-16">
+        <section className="py-12 md:py-16 bg-gradient-to-br from-secondary/10 via-background to-primary/5">
           <div className="container px-4 md:px-6">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold mb-4">
+              <h2 className="text-2xl font-bold mb-4 text-primary">
                 Study Material Guidelines
               </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Please follow these guidelines to ensure the best quality and
+                accessibility of study materials for all students.
+              </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <Card>
-                <CardContent className="p-6 text-center">
-                  <FileText className="h-12 w-12 mx-auto mb-4 text-primary" />
-                  <h3 className="font-semibold mb-2">Quality Content</h3>
+            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
+                <CardContent className="p-8 text-center flex flex-col items-center">
+                  <FileText className="h-14 w-14 mx-auto mb-4 text-primary" />
+                  <h3 className="font-semibold mb-2 text-lg">
+                    Quality Content
+                  </h3>
                   <p className="text-sm text-muted-foreground">
                     All materials are reviewed by expert faculty before
-                    publication
+                    publication. Ensure your uploads are clear, accurate, and
+                    relevant to the syllabus.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardContent className="p-6 text-center">
-                  <Download className="h-12 w-12 mx-auto mb-4 text-green-600" />
-                  <h3 className="font-semibold mb-2">Easy Access</h3>
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
+                <CardContent className="p-8 text-center flex flex-col items-center">
+                  <Download className="h-14 w-14 mx-auto mb-4 text-green-600" />
+                  <h3 className="font-semibold mb-2 text-lg">Easy Access</h3>
                   <p className="text-sm text-muted-foreground">
-                    Download materials in multiple formats (PDF, DOC, ZIP)
+                    Download materials in multiple formats (PDF, DOC, ZIP). Make
+                    sure files are not password protected and are easy to open
+                    on all devices.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardContent className="p-6 text-center">
-                  <Calendar className="h-12 w-12 mx-auto mb-4 text-blue-600" />
-                  <h3 className="font-semibold mb-2">Regular Updates</h3>
+              <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
+                <CardContent className="p-8 text-center flex flex-col items-center">
+                  <Calendar className="h-14 w-14 mx-auto mb-4 text-blue-600" />
+                  <h3 className="font-semibold mb-2 text-lg">
+                    Regular Updates
+                  </h3>
                   <p className="text-sm text-muted-foreground">
-                    Materials are updated regularly to match current syllabus
+                    Materials are updated regularly to match the current
+                    syllabus. Outdated or irrelevant content should be replaced
+                    promptly.
                   </p>
                 </CardContent>
               </Card>
