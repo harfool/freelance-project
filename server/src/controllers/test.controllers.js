@@ -1,10 +1,9 @@
 import Result from "../models/result.model.js";
 import Test from "../models/test.model.js";
-import User from "../models/User.js";
 import { ApiError } from "../utils/api-error.js";
 import { ApiResponse } from "../utils/api-response.js";
 import { asyncHandler } from "../utils/async-handler.js";
-
+import User from "../models/user.model.js";
 export const createTest = asyncHandler(async (req, res) => {
     const { title, questions, courseId } = req.body;
 

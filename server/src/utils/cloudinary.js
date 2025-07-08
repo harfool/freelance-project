@@ -1,4 +1,7 @@
-import { v2 as cloudinary } from "cloudinary";
+// import { v2 as cloudinary } from "cloudinary";
+import pkg from 'cloudinary';
+const { v2: cloudinary } = pkg;
+
 import dotenv from "dotenv";
 dotenv.config("../.env");
 
