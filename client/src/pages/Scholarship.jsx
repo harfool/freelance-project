@@ -406,7 +406,7 @@ export default function ScholarshipPage() {
                     <strong>Phone:</strong> +91 98765 43210
                   </p>
                   <p className="text-sm">
-                    <strong>Email:</strong> scholarships@eduinstitute.com
+                    <strong>Email:</strong> scholarships@SBC.com
                   </p>
                   <p className="text-sm">
                     <strong>Office Hours:</strong> Mon-Fri, 9:00 AM - 5:00 PM

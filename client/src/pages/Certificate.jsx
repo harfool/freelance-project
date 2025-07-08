@@ -1,9 +1,15 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
-import { Button } from "../components/ui/button"
-import { Badge } from "../components/ui/badge"
-import { Download, Eye, Calendar, Award, Share, Printer } from "lucide-react"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
+import { Button } from "../components/ui/button";
+import { Badge } from "../components/ui/badge";
+import { Download, Eye, Calendar, Award, Share, Printer } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const certificates = [
@@ -18,7 +24,7 @@ const certificates = [
     percentage: 85,
     validUntil: "Lifetime",
     downloadUrl: "/certificates/rscit-001.pdf",
-    verificationUrl: "https://verify.eduinstitute.com/RSCIT2024001",
+    verificationUrl: "https://verify.SBC.com/RSCIT2024001",
   },
   {
     id: 2,
@@ -31,9 +37,9 @@ const certificates = [
     percentage: 78,
     validUntil: "Lifetime",
     downloadUrl: "/certificates/cb-001.pdf",
-    verificationUrl: "https://verify.eduinstitute.com/CB2024001",
+    verificationUrl: "https://verify.SBC.com/CB2024001",
   },
-]
+];
 
 const achievements = [
   {
@@ -57,7 +63,7 @@ const achievements = [
     icon: "🌟",
     earnedDate: "2024-01-15",
   },
-]
+];
 
 export default function StudentCertificatesPage() {
   return (
@@ -67,7 +73,9 @@ export default function StudentCertificatesPage() {
         <div className="container flex h-16 items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold">Certificates & Achievements</h1>
-            <p className="text-sm text-muted-foreground">Your earned certificates and achievements</p>
+            <p className="text-sm text-muted-foreground">
+              Your earned certificates and achievements
+            </p>
           </div>
           <Button asChild>
             <Link href="/dashboard">Back to Dashboard</Link>
@@ -82,7 +90,9 @@ export default function StudentCertificatesPage() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-muted-foreground">Total Certificates</p>
+                  <p className="text-sm font-medium text-muted-foreground">
+                    Total Certificates
+                  </p>
                   <p className="text-2xl font-bold">{certificates.length}</p>
                 </div>
                 <Award className="h-8 w-8 text-primary" />
@@ -93,7 +103,9 @@ export default function StudentCertificatesPage() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-muted-foreground">Achievements</p>
+                  <p className="text-sm font-medium text-muted-foreground">
+                    Achievements
+                  </p>
                   <p className="text-2xl font-bold">{achievements.length}</p>
                 </div>
                 <Award className="h-8 w-8 text-yellow-600" />
@@ -104,7 +116,9 @@ export default function StudentCertificatesPage() {
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-medium text-muted-foreground">Average Grade</p>
+                  <p className="text-sm font-medium text-muted-foreground">
+                    Average Grade
+                  </p>
                   <p className="text-2xl font-bold">A-</p>
                 </div>
                 <Award className="h-8 w-8 text-green-600" />
@@ -122,11 +136,14 @@ export default function StudentCertificatesPage() {
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <div>
-                    <CardTitle className="text-xl">{certificate.title}</CardTitle>
+                    <CardTitle className="text-xl">
+                      {certificate.title}
+                    </CardTitle>
                     <CardDescription className="flex items-center space-x-4 mt-2">
                       <div className="flex items-center">
                         <Calendar className="h-4 w-4 mr-1" />
-                        Issued: {new Date(certificate.issueDate).toLocaleDateString()}
+                        Issued:{" "}
+                        {new Date(certificate.issueDate).toLocaleDateString()}
                       </div>
                       <Badge variant="outline">{certificate.course}</Badge>
                     </CardDescription>
@@ -144,20 +161,34 @@ export default function StudentCertificatesPage() {
                     <h4 className="font-semibold">Certificate Details</h4>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-muted-foreground">Certificate Number:</span>
-                        <span className="font-medium">{certificate.certificateNumber}</span>
+                        <span className="text-muted-foreground">
+                          Certificate Number:
+                        </span>
+                        <span className="font-medium">
+                          {certificate.certificateNumber}
+                        </span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-muted-foreground">Grade Achieved:</span>
+                        <span className="text-muted-foreground">
+                          Grade Achieved:
+                        </span>
                         <Badge variant="secondary">{certificate.grade}</Badge>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-muted-foreground">Percentage:</span>
-                        <span className="font-medium">{certificate.percentage}%</span>
+                        <span className="text-muted-foreground">
+                          Percentage:
+                        </span>
+                        <span className="font-medium">
+                          {certificate.percentage}%
+                        </span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-muted-foreground">Valid Until:</span>
-                        <span className="font-medium">{certificate.validUntil}</span>
+                        <span className="text-muted-foreground">
+                          Valid Until:
+                        </span>
+                        <span className="font-medium">
+                          {certificate.validUntil}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -165,7 +196,9 @@ export default function StudentCertificatesPage() {
                   <div className="space-y-4">
                     <h4 className="font-semibold">Verification</h4>
                     <div className="p-4 bg-muted/50 rounded-lg">
-                      <p className="text-sm text-muted-foreground mb-2">Verification URL:</p>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        Verification URL:
+                      </p>
                       <p className="text-xs font-mono bg-background p-2 rounded border break-all">
                         {certificate.verificationUrl}
                       </p>
@@ -206,11 +239,16 @@ export default function StudentCertificatesPage() {
               <Card key={achievement.id}>
                 <CardContent className="p-6 text-center">
                   <div className="text-4xl mb-4">{achievement.icon}</div>
-                  <h3 className="font-semibold text-lg mb-2">{achievement.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{achievement.description}</p>
+                  <h3 className="font-semibold text-lg mb-2">
+                    {achievement.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {achievement.description}
+                  </p>
                   <div className="flex items-center justify-center text-xs text-muted-foreground">
                     <Calendar className="h-3 w-3 mr-1" />
-                    Earned: {new Date(achievement.earnedDate).toLocaleDateString()}
+                    Earned:{" "}
+                    {new Date(achievement.earnedDate).toLocaleDateString()}
                   </div>
                 </CardContent>
               </Card>
@@ -230,15 +268,15 @@ export default function StudentCertificatesPage() {
                 <div>
                   <h4 className="font-semibold mb-2">For Employers</h4>
                   <p className="text-sm text-muted-foreground">
-                    Employers can verify the authenticity of certificates using the verification URL provided with each
-                    certificate.
+                    Employers can verify the authenticity of certificates using
+                    the verification URL provided with each certificate.
                   </p>
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Digital Security</h4>
                   <p className="text-sm text-muted-foreground">
-                    All certificates are digitally signed and secured with blockchain technology for tamper-proof
-                    verification.
+                    All certificates are digitally signed and secured with
+                    blockchain technology for tamper-proof verification.
                   </p>
                 </div>
               </div>
@@ -252,5 +290,5 @@ export default function StudentCertificatesPage() {
         </Card>
       </div>
     </div>
-  )
+  );
 }

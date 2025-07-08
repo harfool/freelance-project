@@ -12,47 +12,81 @@ export default function PrivacyPage() {
                 Privacy Policy
               </h1>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                Learn how EduInstitute collects, uses, and protects your personal information.
+                Learn how SBC collects, uses, and protects your personal
+                information.
               </p>
             </div>
           </div>
         </section>
         <section className="py-12 md:py-16">
           <div className="container max-w-3xl px-4 md:px-6 bg-white rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-4">1. Information We Collect</h2>
+            <h2 className="text-xl font-semibold mb-4">
+              1. Information We Collect
+            </h2>
             <ul className="mb-6 list-disc pl-6 text-muted-foreground space-y-2">
-              <li>Personal details (name, email, phone, address) provided during registration.</li>
+              <li>
+                Personal details (name, email, phone, address) provided during
+                registration.
+              </li>
               <li>Course preferences and academic interests.</li>
-              <li>Usage data such as pages visited, time spent, and actions taken on the platform.</li>
+              <li>
+                Usage data such as pages visited, time spent, and actions taken
+                on the platform.
+              </li>
             </ul>
-            <h2 className="text-xl font-semibold mb-4">2. How We Use Your Information</h2>
+            <h2 className="text-xl font-semibold mb-4">
+              2. How We Use Your Information
+            </h2>
             <ul className="mb-6 list-disc pl-6 text-muted-foreground space-y-2">
               <li>To provide and improve our educational services.</li>
-              <li>To communicate important updates, notifications, and offers.</li>
+              <li>
+                To communicate important updates, notifications, and offers.
+              </li>
               <li>To personalize your learning experience.</li>
               <li>To ensure platform security and prevent misuse.</li>
             </ul>
-            <h2 className="text-xl font-semibold mb-4">3. Data Sharing & Disclosure</h2>
+            <h2 className="text-xl font-semibold mb-4">
+              3. Data Sharing & Disclosure
+            </h2>
             <p className="mb-6 text-muted-foreground">
-              We do not sell or rent your personal information. Data may be shared with trusted partners for educational purposes or as required by law.
+              We do not sell or rent your personal information. Data may be
+              shared with trusted partners for educational purposes or as
+              required by law.
             </p>
             <h2 className="text-xl font-semibold mb-4">4. Data Security</h2>
             <p className="mb-6 text-muted-foreground">
-              We implement industry-standard security measures to protect your data from unauthorized access, alteration, or disclosure.
+              We implement industry-standard security measures to protect your
+              data from unauthorized access, alteration, or disclosure.
             </p>
             <h2 className="text-xl font-semibold mb-4">5. Your Rights</h2>
             <ul className="mb-6 list-disc pl-6 text-muted-foreground space-y-2">
-              <li>Access, update, or delete your personal information at any time.</li>
+              <li>
+                Access, update, or delete your personal information at any time.
+              </li>
               <li>Opt out of marketing communications.</li>
-              <li>Request a copy of your data or raise privacy concerns by <a href="/contact" className="text-primary hover:underline">contacting us</a>.</li>
+              <li>
+                Request a copy of your data or raise privacy concerns by{" "}
+                <a href="/contact" className="text-primary hover:underline">
+                  contacting us
+                </a>
+                .
+              </li>
             </ul>
-            <h2 className="text-xl font-semibold mb-4">6. Changes to This Policy</h2>
+            <h2 className="text-xl font-semibold mb-4">
+              6. Changes to This Policy
+            </h2>
             <p className="mb-6 text-muted-foreground">
-              We may update this Privacy Policy from time to time. Please review this page regularly for any changes.
+              We may update this Privacy Policy from time to time. Please review
+              this page regularly for any changes.
             </p>
             <h2 className="text-xl font-semibold mb-4">7. Contact</h2>
             <p className="mb-6 text-muted-foreground">
-              If you have questions or concerns about our privacy practices, please <a href="/contact" className="text-primary hover:underline">contact us</a>.
+              If you have questions or concerns about our privacy practices,
+              please{" "}
+              <a href="/contact" className="text-primary hover:underline">
+                contact us
+              </a>
+              .
             </p>
           </div>
         </section>

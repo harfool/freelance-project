@@ -2,7 +2,6 @@
 
 import React from "react";
 import { useState } from "react";
-import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
@@ -69,7 +68,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-6">
-                  <Card>
+                  <Card className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
                     <CardContent className="p-6">
                       <div className="flex items-start space-x-4">
                         <MapPin className="h-6 w-6 text-primary mt-1" />
@@ -87,7 +86,7 @@ export default function ContactPage() {
                     </CardContent>
                   </Card>
 
-                  <Card>
+                  <Card className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
                     <CardContent className="p-6">
                       <div className="flex items-start space-x-4">
                         <Phone className="h-6 w-6 text-primary mt-1" />
@@ -103,23 +102,23 @@ export default function ContactPage() {
                     </CardContent>
                   </Card>
 
-                  <Card>
+                  <Card className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
                     <CardContent className="p-6">
                       <div className="flex items-start space-x-4">
                         <Mail className="h-6 w-6 text-primary mt-1" />
                         <div>
                           <h3 className="font-semibold mb-2">Email</h3>
                           <p className="text-muted-foreground">
-                            info@eduinstitute.com
+                            info@SBC.com
                             <br />
-                            admissions@eduinstitute.com
+                            admissions@SBC.com
                           </p>
                         </div>
                       </div>
                     </CardContent>
                   </Card>
 
-                  <Card>
+                  <Card className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
                     <CardContent className="p-6">
                       <div className="flex items-start space-x-4">
                         <Clock className="h-6 w-6 text-primary mt-1" />
@@ -140,7 +139,7 @@ export default function ContactPage() {
               </div>
 
               {/* Contact Form */}
-              <Card>
+              <Card className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
                 <CardHeader>
                   <CardTitle>Send us a Message</CardTitle>
                   <CardDescription>
@@ -148,7 +147,7 @@ export default function ContactPage() {
                     possible.
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="p-6">
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
@@ -216,7 +215,7 @@ export default function ContactPage() {
 
                     <Button
                       type="submit"
-                      className="w-full"
+                      className="w-full bg-black text-white hover:bg-neutral-900 cursor-pointer"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
@@ -244,14 +243,18 @@ export default function ContactPage() {
                 Visit our campus for a personal consultation
               </p>
             </div>
-            <div className="aspect-video rounded-lg overflow-hidden bg-muted">
-              <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                <div className="text-center">
-                  <MapPin className="h-12 w-12 mx-auto mb-4" />
-                  <p>Interactive Map</p>
-                  <p className="text-sm">123 Education Street, Learning City</p>
-                </div>
-              </div>
+            <div className="rounded-lg overflow-hidden bg-muted max-w-2xl mx-auto h-72">
+              <iframe
+                title="Google Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.825964073624!2d75.7872700753706!3d26.84968417666844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db5e2e2e2e2e3%3A0x1234567890abcdef!2s123%20Education%20Street%2C%20Learning%20City%2C%20India!5e0!3m2!1sen!2sin!4v1689000000000!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              ></iframe>
             </div>
           </div>
         </section>

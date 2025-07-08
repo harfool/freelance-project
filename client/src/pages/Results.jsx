@@ -14,7 +14,17 @@ import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { Badge } from "../components/ui/badge";
-import { Search, Download, Eye, Calendar, Award } from "lucide-react";
+import {
+  Search,
+  Download,
+  Eye,
+  Calendar,
+  Award,
+  BarChart2,
+  Users,
+  BookOpen,
+  FileText,
+} from "lucide-react";
 import { useToast } from "../hooks/use-toast";
 
 // Mock results data
@@ -359,9 +369,9 @@ export default function ResultsPage() {
               {mockResults.slice(0, 3).map((result) => (
                 <Card
                   key={result.id}
-                  className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200"
+                  className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200 py-4"
                 >
-                  <CardContent className="p-6">
+                  <CardContent className="p-5">
                     <div className="flex items-center justify-between">
                       <div className="space-y-1">
                         <h3 className="font-semibold">{result.examTitle}</h3>
@@ -415,6 +425,7 @@ export default function ResultsPage() {
               </Card>
               <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
                 <CardContent className="p-6 text-center">
+                  <BarChart2 className="h-12 w-12 mx-auto mb-4 text-green-600" />
                   <div className="text-2xl font-bold mb-2 text-green-600">
                     82%
                   </div>
@@ -425,6 +436,7 @@ export default function ResultsPage() {
               </Card>
               <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
                 <CardContent className="p-6 text-center">
+                  <Users className="h-12 w-12 mx-auto mb-4 text-blue-600" />
                   <div className="text-2xl font-bold mb-2 text-blue-600">
                     1,250
                   </div>
@@ -435,6 +447,7 @@ export default function ResultsPage() {
               </Card>
               <Card className="shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200">
                 <CardContent className="p-6 text-center">
+                  <FileText className="h-12 w-12 mx-auto mb-4 text-purple-600" />
                   <div className="text-2xl font-bold mb-2 text-purple-600">
                     45
                   </div>

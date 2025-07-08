@@ -24,9 +24,9 @@ export default function TermsPage() {
               1. Acceptance of Terms
             </h2>
             <p className="mb-6 text-muted-foreground">
-              By accessing or using EduInstitute's website and services, you
-              agree to be bound by these terms and conditions. If you do not
-              agree, please do not use our services.
+              By accessing or using SBC's website and services, you agree to be
+              bound by these terms and conditions. If you do not agree, please
+              do not use our services.
             </p>
             <h2 className="text-xl font-semibold mb-4">
               2. User Responsibilities
@@ -57,15 +57,14 @@ export default function TermsPage() {
             </h2>
             <p className="mb-6 text-muted-foreground">
               All content, logos, and materials on this site are the property of
-              EduInstitute or its licensors. Unauthorized use is strictly
-              prohibited.
+              SBC or its licensors. Unauthorized use is strictly prohibited.
             </p>
             <h2 className="text-xl font-semibold mb-4">
               5. Limitation of Liability
             </h2>
             <p className="mb-6 text-muted-foreground">
-              EduInstitute is not liable for any direct, indirect, or
-              consequential damages arising from the use of our services.
+              SBC is not liable for any direct, indirect, or consequential
+              damages arising from the use of our services.
             </p>
             <h2 className="text-xl font-semibold mb-4">6. Changes to Terms</h2>
             <p className="mb-6 text-muted-foreground">

@@ -19,6 +19,7 @@ import ScrollToTop from "./components/ScrollToTop.jsx";
 import Terms from "./pages/Terms.jsx";
 import Privacy from "./pages/Privacy.jsx";
 import TestDashboard from "./pages/TestDashboard.jsx";
+import Announcements from "./pages/Announcements.jsx";
 
 function AppRoutes() {
   const location = useLocation();
@@ -46,6 +47,7 @@ function AppRoutes() {
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/testDashboard" element={<TestDashboard />} />
+        <Route path="/announcements" element={<Announcements />} />
       </Routes>
     </>
   );

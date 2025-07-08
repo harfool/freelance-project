@@ -1,10 +1,15 @@
-import { Header } from "../components/header"
-import { Footer } from "../components/footer"
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
-import { Badge } from "../components/ui/badge"
-import { Button } from "../components/ui/button"
-import { Input } from "../components/ui/input"
-import { Calendar, Bell, Search, Filter, Pin, Clock } from "lucide-react"
+import React, { useState } from "react";
+import Footer from "../components/Footer.jsx";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
+import { Badge } from "../components/ui/badge";
+import { Button } from "../components/ui/button";
+import { Input } from "../components/ui/input";
+import { Calendar, Bell, Search, Filter, Pin, Clock } from "lucide-react";
 
 const announcements = [
   {
@@ -79,25 +84,47 @@ const announcements = [
     expiryDate: "2024-01-20",
     targetAudience: "Parents",
   },
-]
+];
 
-const categories = ["All", "Course", "Exam", "Scholarship", "General", "Infrastructure", "Meeting"]
+const categories = [
+  "All",
+  "Course",
+  "Exam",
+  "Scholarship",
+  "General",
+  "Infrastructure",
+  "Meeting",
+];
 
 export default function AnnouncementsPage() {
-  const pinnedAnnouncements = announcements.filter((a) => a.isPinned)
-  const regularAnnouncements = announcements.filter((a) => !a.isPinned)
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const filteredAnnouncements = announcements.filter((a) => {
+    const matchesCategory =
+      selectedCategory === "All" || a.type === selectedCategory;
+    const matchesSearch =
+      a.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      a.content.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
+
+  const pinnedAnnouncements = filteredAnnouncements.filter((a) => a.isPinned);
+  const regularAnnouncements = filteredAnnouncements.filter((a) => !a.isPinned);
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
       <main className="flex-1">
         {/* Hero Section */}
         <section className="py-12 md:py-24 bg-gradient-to-br from-primary/10 via-background to-secondary/10">
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-4">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Announcements</h1>
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                Announcements
+              </h1>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                Stay updated with the latest news, events, and important information
+                Stay updated with the latest news, events, and important
+                information
               </p>
             </div>
           </div>
@@ -109,20 +136,35 @@ export default function AnnouncementsPage() {
             <div className="flex flex-col md:flex-row gap-4 items-center">
               <div className="relative flex-1 max-w-md">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input placeholder="Search announcements..." className="pl-10" />
+                <Input
+                  placeholder="Search announcements..."
+                  className="pl-10"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
               </div>
 
               <div className="flex gap-4 items-center">
                 <div className="flex items-center gap-2">
                   <Filter className="h-4 w-4 text-muted-foreground" />
                   <span className="text-sm font-medium">Category:</span>
-                  <select className="border rounded-md px-3 py-1 text-sm">
+                  <div className="flex gap-1">
                     {categories.map((category) => (
-                      <option key={category} value={category}>
+                      <Badge
+                        key={category}
+                        variant={
+                          selectedCategory === category ? "default" : "outline"
+                        }
+                        className={
+                          "cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors" +
+                          (selectedCategory === category ? " font-bold" : "")
+                        }
+                        onClick={() => setSelectedCategory(category)}
+                      >
                         {category}
-                      </option>
+                      </Badge>
                     ))}
-                  </select>
+                  </div>
                 </div>
               </div>
             </div>
@@ -139,13 +181,19 @@ export default function AnnouncementsPage() {
               </div>
               <div className="grid gap-4 md:grid-cols-2">
                 {pinnedAnnouncements.map((announcement) => (
-                  <Card key={announcement.id} className="border-primary/20 bg-primary/5">
+                  <Card
+                    key={announcement.id}
+                    className="border-primary/20 bg-primary/5 shadow-lg border rounded-xl hover:shadow-2xl transition-shadow duration-200"
+                  >
                     <CardHeader>
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-2">
                           <Badge variant="outline">{announcement.type}</Badge>
                           {announcement.isUrgent && (
-                            <Badge variant="destructive" className="animate-pulse">
+                            <Badge
+                              variant="destructive"
+                              className="animate-pulse"
+                            >
                               <Bell className="h-3 w-3 mr-1" />
                               Urgent
                             </Badge>
@@ -154,19 +202,30 @@ export default function AnnouncementsPage() {
                         </div>
                         <div className="flex items-center text-sm text-muted-foreground">
                           <Calendar className="h-4 w-4 mr-1" />
-                          {new Date(announcement.publishDate).toLocaleDateString()}
+                          {new Date(
+                            announcement.publishDate
+                          ).toLocaleDateString()}
                         </div>
                       </div>
-                      <CardTitle className="text-lg">{announcement.title}</CardTitle>
+                      <CardTitle className="text-lg">
+                        {announcement.title}
+                      </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-muted-foreground mb-4">{announcement.content}</p>
+                      <p className="text-muted-foreground mb-4">
+                        {announcement.content}
+                      </p>
                       <div className="flex items-center justify-between text-sm">
-                        <Badge variant="secondary">{announcement.targetAudience}</Badge>
+                        <Badge variant="secondary">
+                          {announcement.targetAudience}
+                        </Badge>
                         {announcement.expiryDate && (
                           <div className="flex items-center text-muted-foreground">
                             <Clock className="h-3 w-3 mr-1" />
-                            Expires: {new Date(announcement.expiryDate).toLocaleDateString()}
+                            Expires:{" "}
+                            {new Date(
+                              announcement.expiryDate
+                            ).toLocaleDateString()}
                           </div>
                         )}
                       </div>
@@ -184,7 +243,10 @@ export default function AnnouncementsPage() {
             <h2 className="text-xl font-semibold mb-6">Recent Announcements</h2>
             <div className="space-y-6">
               {regularAnnouncements.map((announcement) => (
-                <Card key={announcement.id}>
+                <Card
+                  key={announcement.id}
+                  className="shadow-lg border rounded-xl hover:shadow-2xl transition-shadow duration-200"
+                >
                   <CardHeader>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
@@ -198,19 +260,30 @@ export default function AnnouncementsPage() {
                       </div>
                       <div className="flex items-center text-sm text-muted-foreground">
                         <Calendar className="h-4 w-4 mr-1" />
-                        {new Date(announcement.publishDate).toLocaleDateString()}
+                        {new Date(
+                          announcement.publishDate
+                        ).toLocaleDateString()}
                       </div>
                     </div>
-                    <CardTitle className="text-xl">{announcement.title}</CardTitle>
+                    <CardTitle className="text-xl">
+                      {announcement.title}
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground mb-4">{announcement.content}</p>
+                    <p className="text-muted-foreground mb-4">
+                      {announcement.content}
+                    </p>
                     <div className="flex items-center justify-between">
-                      <Badge variant="secondary">{announcement.targetAudience}</Badge>
+                      <Badge variant="secondary">
+                        {announcement.targetAudience}
+                      </Badge>
                       {announcement.expiryDate && (
                         <div className="flex items-center text-sm text-muted-foreground">
                           <Clock className="h-3 w-3 mr-1" />
-                          Expires: {new Date(announcement.expiryDate).toLocaleDateString()}
+                          Expires:{" "}
+                          {new Date(
+                            announcement.expiryDate
+                          ).toLocaleDateString()}
                         </div>
                       )}
                     </div>
@@ -227,9 +300,12 @@ export default function AnnouncementsPage() {
             <Card className="max-w-2xl mx-auto text-center">
               <CardContent className="p-8">
                 <Bell className="h-12 w-12 mx-auto mb-4 text-primary" />
-                <h3 className="text-xl font-semibold mb-4">Never Miss an Update</h3>
+                <h3 className="text-xl font-semibold mb-4">
+                  Never Miss an Update
+                </h3>
                 <p className="text-muted-foreground mb-6">
-                  Subscribe to get instant notifications about important announcements and updates
+                  Subscribe to get instant notifications about important
+                  announcements and updates
                 </p>
                 <div className="flex gap-2 max-w-md mx-auto">
                   <Input placeholder="Enter your email" type="email" />
@@ -245,5 +321,5 @@ export default function AnnouncementsPage() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

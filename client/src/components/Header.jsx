@@ -14,7 +14,7 @@ export default function Header() {
       <div className="container flex h-16 items-center">
         <Link to="/" className="flex items-center space-x-2">
           <GraduationCap className="h-6 w-6" />
-          <span className="font-bold text-xl">EduInstitute</span>
+          <span className="font-bold text-xl">SBC</span>
         </Link>
         <nav className="hidden md:flex mx-6 space-x-6">
           <Link

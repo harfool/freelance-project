@@ -43,7 +43,7 @@ export default function LoginPage() {
         <div className="flex items-center justify-center mb-8">
           <Link href="/" className="flex items-center space-x-2">
             <GraduationCap className="h-8 w-8" />
-            <span className="font-bold text-2xl">EduInstitute</span>
+            <span className="font-bold text-2xl">SBC</span>
           </Link>
         </div>
 

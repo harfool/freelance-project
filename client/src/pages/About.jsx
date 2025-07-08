@@ -16,21 +16,24 @@ const team = [
     position: "Director & Founder",
     qualification: "Ph.D in Computer Science",
     experience: "15+ years",
-    image: "/placeholder.svg?height=200&width=200",
+    image:
+      "https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=facearea&w=200&h=200&q=80",
   },
   {
     name: "Prof. Sunita Sharma",
     position: "Academic Head",
     qualification: "M.Tech, B.Ed",
     experience: "12+ years",
-    image: "/placeholder.svg?height=200&width=200",
+    image:
+      "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=200&h=200&q=80",
   },
   {
     name: "Mr. Amit Gupta",
     position: "Technical Lead",
     qualification: "MCA, CCNA",
     experience: "10+ years",
-    image: "/placeholder.svg?height=200&width=200",
+    image:
+      "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=200&h=200&q=80",
   },
 ];
 
@@ -64,7 +67,7 @@ export default function AboutPage() {
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-4">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                About EduInstitute
+                About SBC
               </h1>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
                 Empowering students with quality education and modern teaching
@@ -204,9 +207,7 @@ export default function AboutPage() {
         <section className="py-12 md:py-16">
           <div className="container px-4 md:px-6">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">
-                Why Choose EduInstitute?
-              </h2>
+              <h2 className="text-3xl font-bold mb-4">Why Choose SBC?</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
