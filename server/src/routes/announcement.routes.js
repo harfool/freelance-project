@@ -6,15 +6,21 @@ import {
     updateAnnouncement,
     deleteAnnouncement,
 } from "../controllers/announcement.controllers.js";
+import { authenticate, authorizeRoles } from "../middlewares/auth.middlewares.js";
 
 
 const router = express.Router();
 
 
-router.post("/create", createAnnouncement); 
-router.get("/get-all", getAllAnnouncements); 
-router.get("/:id", getAnnouncementById); 
-router.put("/:id", updateAnnouncement); 
-router.delete("/:id", deleteAnnouncement);
+router.post("/create", authenticate, authorizeRoles("ADMIN"), createAnnouncement); 
+router.get("/get-all", authenticate, getAllAnnouncements); 
+router.get("/:id", authenticate, getAnnouncementById); 
+router.put("/:id", authenticate, authorizeRoles("ADMIN"), updateAnnouncement); 
+router.delete(
+    "/:id",
+    authenticate,
+    authorizeRoles("ADMIN"),
+    deleteAnnouncement,
+);
 
 export default router;

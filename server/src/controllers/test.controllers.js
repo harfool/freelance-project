@@ -1,10 +1,9 @@
 import Result from "../models/result.model.js";
 import Test from "../models/test.model.js";
 import User from "../models/User.js";
-import {ApiError} from "../utils/api-error.js";
-import {ApiResponse} from "../utils/api-response.js";
+import { ApiError } from "../utils/api-error.js";
+import { ApiResponse } from "../utils/api-response.js";
 import { asyncHandler } from "../utils/async-handler.js";
-
 
 export const createTest = asyncHandler(async (req, res) => {
     const { title, questions, courseId } = req.body;
@@ -19,7 +18,7 @@ export const createTest = asyncHandler(async (req, res) => {
         courseId,
     });
 
-    if(!newTest) {
+    if (!newTest) {
         throw new ApiError(500, "Failed to create test");
     }
 
@@ -75,14 +74,9 @@ export const attemptTest = asyncHandler(async (req, res) => {
     }
 
     res.status(200).json(
-        new ApiResponse(
-            200,
-            result,
-            "Test submitted successfully",
-        ),
+        new ApiResponse(200, result, "Test submitted successfully"),
     );
 });
-
 
 export const getAllTests = asyncHandler(async (req, res) => {
     const tests = await Test.find({}).populate("courseId");
@@ -94,17 +88,14 @@ export const getAllTests = asyncHandler(async (req, res) => {
     res.status(200).json(new ApiResponse(200, tests, "Fetched all tests"));
 });
 
-
 export const getTestById = asyncHandler(async (req, res) => {
     const { id } = req.params;
 
     const test = await Test.findById(id).populate("courseId");
     if (!test) throw new ApiError(404, "Test not found");
 
-
     res.status(200).json(new ApiResponse(200, test, "Fetched test"));
 });
-
 
 export const updateTest = asyncHandler(async (req, res) => {
     const { id } = req.params;
@@ -113,7 +104,8 @@ export const updateTest = asyncHandler(async (req, res) => {
         new: true,
     });
 
-    if (!updatedTest) throw new ApiError(404, "Test not found or update failed");
+    if (!updatedTest)
+        throw new ApiError(404, "Test not found or update failed");
 
     res.status(200).json(
         new ApiResponse(200, updatedTest, "Test updated successfully"),
@@ -128,5 +120,21 @@ export const deleteTest = asyncHandler(async (req, res) => {
 
     res.status(200).json(
         new ApiResponse(200, null, "Test deleted successfully"),
+    );
+});
+
+export const getAllTestsByStudent = asyncHandler(async (req, res) => {
+    const userId = req.user._id;
+
+    const testSubmissions = await Test.find({ studentId: userId })
+        .populate("testId")
+        .sort({ createdAt: -1 });
+
+    if (!testSubmissions || testSubmissions.length === 0) {
+        throw new ApiError(404, "No test submissions found for this user");
+    }
+
+    res.status(200).json(
+        new ApiResponse(200, testSubmissions, "All attempted tests fetched"),
     );
 });
