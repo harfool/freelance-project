@@ -75,7 +75,7 @@ export default function StudentNotesPage() {
 						<p className="text-sm text-muted-foreground">Access your course notes and assignments</p>
 					</div>
 					<Button asChild>
-						<Link href="/dashboard">Back to Dashboard</Link>
+						<Link to="/dashboard">Back to Dashboard</Link>
 					</Button>
 				</div>
 			</div>

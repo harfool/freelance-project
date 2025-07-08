@@ -100,17 +100,21 @@ export default function PaperPage() {
                 <div className="flex items-center gap-2">
                   <Filter className="h-4 w-4 text-muted-foreground" />
                   <span className="text-sm font-medium">Course:</span>
-                  <select
-                    value={selectedCourse}
-                    onChange={(e) => setSelectedCourse(e.target.value)}
-                    className="border rounded-md px-3 py-1 text-sm"
-                  >
+                  <div className="flex gap-1">
                     {courses.map((course) => (
-                      <option key={course} value={course}>
+                      <Badge
+                        key={course}
+                        variant={selectedCourse === course ? "default" : "outline"}
+                        className={
+                          "cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors" +
+                          (selectedCourse === course ? " font-bold" : "")
+                        }
+                        onClick={() => setSelectedCourse(course)}
+                      >
                         {course}
-                      </option>
+                      </Badge>
                     ))}
-                  </select>
+                  </div>
                 </div>
               </div>
             </div>
@@ -129,9 +133,9 @@ export default function PaperPage() {
                 </p>
               </div>
             ) : (
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {filteredPapers.map((paper) => (
-                  <Card key={paper.id} className="flex flex-col h-full">
+                  <Card key={paper.id} className="flex flex-col h-full shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
                     <CardHeader>
                       <div className="flex items-center justify-between mb-2">
                         <Badge variant="outline">{paper.course}</Badge>
@@ -155,7 +159,7 @@ export default function PaperPage() {
                         )}
                       </div>
                       <div className="pt-4 border-t flex gap-2">
-                        <Button className="flex-1">
+                        <Button className="flex-1 bg-black text-white hover:bg-neutral-900 cursor-pointer">
                           <Download className="h-4 w-4 mr-2" />
                           Download
                         </Button>

@@ -3,7 +3,7 @@
 import React from "react";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
@@ -21,6 +21,7 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -33,7 +34,7 @@ export default function LoginPage() {
         title: "Login Successful",
         description: `Welcome back! Redirecting to your dashboard...`,
       });
-      // Redirect logic would go here
+      navigate("/profile");
     }, 2000);
   };
 

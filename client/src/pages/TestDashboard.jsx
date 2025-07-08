@@ -86,7 +86,7 @@ export default function StudentTestsPage() {
             </p>
           </div>
           <Button asChild>
-            <Link href="/dashboard">Back to Dashboard</Link>
+            <Link to="/dashboard">Back to Dashboard</Link>
           </Button>
         </div>
       </div>

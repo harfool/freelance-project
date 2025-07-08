@@ -75,9 +75,9 @@ export default function ContactPage() {
                         <div>
                           <h3 className="font-semibold mb-2">Address</h3>
                           <p className="text-muted-foreground">
-                            123 Education Street
+                            Sareri
                             <br />
-                            Learning City, State 123456
+                            Rajasthan 311030
                             <br />
                             India
                           </p>
@@ -243,7 +243,7 @@ export default function ContactPage() {
                 Visit our campus for a personal consultation
               </p>
             </div>
-            <div className="rounded-lg overflow-hidden bg-muted max-w-2xl mx-auto h-72">
+            <div className="rounded-lg overflow-hidden bg-muted max-w-2xl mx-auto h-96">
               <iframe
                 title="Google Map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.825964073624!2d75.7872700753706!3d26.84968417666844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db5e2e2e2e2e3%3A0x1234567890abcdef!2s123%20Education%20Street%2C%20Learning%20City%2C%20India!5e0!3m2!1sen!2sin!4v1689000000000!5m2!1sen!2sin"

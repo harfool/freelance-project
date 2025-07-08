@@ -64,7 +64,7 @@ export default function StudentResultsPage() {
             <p className="text-sm text-muted-foreground">View your examination results and performance</p>
           </div>
           <Button asChild>
-            <Link href="/dashboard">Back to Dashboard</Link>
+            <Link to="/dashboard">Back to Dashboard</Link>
           </Button>
         </div>
       </div>

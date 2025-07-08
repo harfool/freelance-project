@@ -20,6 +20,7 @@ import Terms from "./pages/Terms.jsx";
 import Privacy from "./pages/Privacy.jsx";
 import TestDashboard from "./pages/TestDashboard.jsx";
 import Announcements from "./pages/Announcements.jsx";
+import Profile from "./pages/Profile.jsx"
 
 function AppRoutes() {
   const location = useLocation();
@@ -48,6 +49,7 @@ function AppRoutes() {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/testDashboard" element={<TestDashboard />} />
         <Route path="/announcements" element={<Announcements />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </>
   );

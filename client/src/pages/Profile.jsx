@@ -47,20 +47,20 @@ export default function StudentProfilePage() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <div className="border-b bg-muted/40">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="container flex h-16 items-center justify-between max-w-4xl mx-auto px-4">
           <div>
             <h1 className="text-2xl font-bold">My Profile</h1>
             <p className="text-sm text-muted-foreground">Manage your account settings and preferences</p>
           </div>
           <Button asChild>
-            <Link href="/dashboard">Back to Dashboard</Link>
+            <Link to="/dashboard">Back to Dashboard</Link>
           </Button>
         </div>
       </div>
 
-      <div className="container py-6">
+      <div className="container py-8 max-w-4xl mx-auto px-4">
         <Tabs defaultValue="profile" className="space-y-6">
-          <TabsList>
+          <TabsList className="mb-4">
             <TabsTrigger value="profile">Profile</TabsTrigger>
             <TabsTrigger value="security">Security</TabsTrigger>
             <TabsTrigger value="notifications">Notifications</TabsTrigger>
@@ -69,9 +69,9 @@ export default function StudentProfilePage() {
 
           <TabsContent value="profile" className="space-y-6">
             {/* Profile Header */}
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-6">
+            <Card className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
+              <CardContent className="p-8">
+                <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-6">
                   <div className="relative">
                     <Avatar className="h-24 w-24">
                       <AvatarImage src={formData.avatar || "/placeholder.svg"} alt={formData.name} />
@@ -86,7 +86,7 @@ export default function StudentProfilePage() {
                       <Camera className="h-4 w-4" />
                     </Button>
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 w-full">
                     <h2 className="text-2xl font-bold">{formData.name}</h2>
                     <p className="text-muted-foreground">Student ID: {formData.id}</p>
                     <div className="flex items-center space-x-4 mt-2">
@@ -115,7 +115,7 @@ export default function StudentProfilePage() {
             </Card>
 
             {/* Personal Information */}
-            <Card>
+            <Card className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
               <CardHeader>
                 <CardTitle>Personal Information</CardTitle>
                 <CardDescription>Update your personal details</CardDescription>
@@ -175,7 +175,7 @@ export default function StudentProfilePage() {
             </Card>
 
             {/* Academic Information */}
-            <Card>
+            <Card className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
               <CardHeader>
                 <CardTitle>Academic Information</CardTitle>
                 <CardDescription>Your course and enrollment details</CardDescription>
@@ -204,7 +204,7 @@ export default function StudentProfilePage() {
           </TabsContent>
 
           <TabsContent value="security" className="space-y-6">
-            <Card>
+            <Card className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
               <CardHeader>
                 <CardTitle>Password & Security</CardTitle>
                 <CardDescription>Manage your account security settings</CardDescription>
@@ -255,7 +255,7 @@ export default function StudentProfilePage() {
           </TabsContent>
 
           <TabsContent value="notifications" className="space-y-6">
-            <Card>
+            <Card className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
               <CardHeader>
                 <CardTitle>Notification Preferences</CardTitle>
                 <CardDescription>Choose how you want to receive notifications</CardDescription>
@@ -295,7 +295,7 @@ export default function StudentProfilePage() {
           </TabsContent>
 
           <TabsContent value="preferences" className="space-y-6">
-            <Card>
+            <Card className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
               <CardHeader>
                 <CardTitle>App Preferences</CardTitle>
                 <CardDescription>Customize your learning experience</CardDescription>
