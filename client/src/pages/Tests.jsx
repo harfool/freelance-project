@@ -14,6 +14,7 @@ import { Badge } from "../components/ui/badge";
 import { Input } from "../components/ui/input";
 import { Clock, Users, FileText, Play, Search, Filter } from "lucide-react";
 import { Link } from "react-router-dom";
+import DemoTest from "./DemoTest";
 
 const tests = [
   {
@@ -111,6 +112,7 @@ export default function TestsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCourse, setSelectedCourse] = useState("All");
   const [selectedDifficulty, setSelectedDifficulty] = useState("All");
+  const [showDemo, setShowDemo] = useState(false);
 
   const filteredTests = tests.filter((test) => {
     const matchesSearch =
@@ -123,6 +125,10 @@ export default function TestsPage() {
 
     return matchesSearch && matchesCourse && matchesDifficulty;
   });
+
+  if (showDemo) {
+    return <DemoTest />;
+  }
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -279,12 +285,10 @@ export default function TestsPage() {
                         {test.isDemo ? (
                           <Button
                             className="w-full bg-black text-white hover:bg-neutral-900 cursor-pointer"
-                            asChild
+                            onClick={() => setShowDemo(true)}
                           >
-                            <Link href={`/tests/${test.id}/demo`}>
-                              <Play className="h-4 w-4 mr-2" />
-                              Start Demo Test
-                            </Link>
+                            <Play className="h-4 w-4 mr-2" />
+                            Start Demo Test
                           </Button>
                         ) : (
                           <Button
