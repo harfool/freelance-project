@@ -33,7 +33,7 @@ export default function Header() {
             to="/tests"
             className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-4 py-2 rounded"
           >
-            Online Tests
+            Tests
           </Link>
           <Link
             to="/results"
