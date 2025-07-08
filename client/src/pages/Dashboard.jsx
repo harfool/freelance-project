@@ -118,7 +118,7 @@ export default function StudentDashboard() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <div className="border-b bg-muted/40">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="container flex h-16 items-center justify-between max-w-4xl mx-auto px-4">
           <div>
             <h1 className="text-2xl font-bold">Student Dashboard</h1>
             <p className="text-sm text-muted-foreground">
@@ -132,9 +132,9 @@ export default function StudentDashboard() {
         </div>
       </div>
 
-      <div className="container py-6">
+      <div className="w-full max-w-4xl mx-auto px-4 py-8">
         {/* Quick Stats */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 mb-8">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
           {quickStats.map((stat, index) => (
             <Card
               key={index}
@@ -155,7 +155,7 @@ export default function StudentDashboard() {
           ))}
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 items-start">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start">
           {/* Course Progress */}
           <Card className="md:col-span-2 shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200 rounded-xl">
             <CardHeader>

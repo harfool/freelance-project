@@ -140,6 +140,17 @@ export default function NotesPage() {
                 all courses
               </p>
             </div>
+            {/* MVP PDF Download for Testing */}
+            <div className="flex justify-center mt-8">
+              <a
+                href="/PDF-RSCIT-Paper-PDF-27-April-2025.pdf"
+                download
+                className="inline-flex items-center px-6 py-3 bg-black text-white rounded-lg shadow hover:bg-neutral-900 transition-colors text-base font-semibold gap-2"
+              >
+                <Download className="h-5 w-5 mr-2" />
+                Download RS-CIT Paper (27 April 2025)
+              </a>
+            </div>
           </div>
         </section>
 
