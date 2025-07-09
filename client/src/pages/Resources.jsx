@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Footer from "../components/Footer.jsx";
+import PDFViewer from "../components/PDFViewer";
 import {
   Card,
   CardContent,
@@ -113,6 +114,18 @@ export default function NotesPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCourse, setSelectedCourse] = useState("All");
   const [selectedType, setSelectedType] = useState("All");
+  const [pdfViewerOpen, setPdfViewerOpen] = useState(false);
+  const [currentPdf, setCurrentPdf] = useState({ url: "", title: "" });
+
+  const openPdfViewer = (url, title) => {
+    setCurrentPdf({ url, title });
+    setPdfViewerOpen(true);
+  };
+
+  const closePdfViewer = () => {
+    setPdfViewerOpen(false);
+    setCurrentPdf({ url: "", title: "" });
+  };
 
   const filteredMaterials = studyMaterials.filter((material) => {
     const matchesSearch =
@@ -141,7 +154,20 @@ export default function NotesPage() {
               </p>
             </div>
             {/* MVP PDF Download for Testing */}
-            <div className="flex justify-center mt-8">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
+              <Button
+                onClick={() =>
+                  openPdfViewer(
+                    "/PDF-RSCIT-Paper-PDF-27-April-2025.pdf",
+                    "RS-CIT Paper - 27 April 2025"
+                  )
+                }
+                variant="outline"
+                className="inline-flex items-center px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition-colors text-base font-semibold gap-2"
+              >
+                <Eye className="h-5 w-5 mr-2" />
+                Preview RS-CIT Paper
+              </Button>
               <a
                 href="/PDF-RSCIT-Paper-PDF-27-April-2025.pdf"
                 download
@@ -411,6 +437,14 @@ export default function NotesPage() {
       </main>
       <Outlet />
       <Footer />
+
+      {/* PDF Viewer Modal */}
+      <PDFViewer
+        pdfUrl={currentPdf.url}
+        title={currentPdf.title}
+        isOpen={pdfViewerOpen}
+        onClose={closePdfViewer}
+      />
     </div>
   );
 }

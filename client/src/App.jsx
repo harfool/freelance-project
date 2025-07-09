@@ -25,6 +25,9 @@ import StudentResultPage from "./pages/StudentResult.jsx";
 import Certificate from "./pages/Certificate.jsx";
 import NotificationPage from "./pages/Notification.jsx";
 import AdminDashboard from "./pages/Admin.jsx";
+import Students from "./pages/Students.jsx";
+import CreateTest from "./pages/CreateTest.jsx";
+import Attendance from "./pages/Attendance.jsx";
 
 function AppRoutes() {
   const location = useLocation();
@@ -61,6 +64,9 @@ function AppRoutes() {
         <Route path="/announcements" element={<Announcements />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/students" element={<Students />} />
+        <Route path="/createTest" element={<CreateTest />} />
+        <Route path="/attendance" element={<Attendance />} />
       </Routes>
     </>
   );

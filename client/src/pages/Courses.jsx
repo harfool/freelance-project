@@ -227,7 +227,7 @@ export default function CoursesPage() {
                         ))}
                       </ul>
                     </div>
-                    <div className="flex items-center justify-between pt-4 border-t">
+                    <div className="flex items-center justify-center pt-4 border-t">
                       <div>
                         <span className="text-2xl font-bold text-primary">
                           {course.price}
@@ -236,12 +236,6 @@ export default function CoursesPage() {
                           / course
                         </span>
                       </div>
-                      <Button
-                        asChild
-                        className="bg-black text-white hover:bg-neutral-900 cursor-pointer"
-                      >
-                        <Link href={course.href}>Learn More</Link>
-                      </Button>
                     </div>
                   </CardContent>
                 </Card>
