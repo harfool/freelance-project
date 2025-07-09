@@ -42,7 +42,7 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/10 p-4">
       <div className="w-full max-w-md">
         <div className="flex items-center justify-center mb-8">
-          <Link href="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <GraduationCap className="h-8 w-8" />
             <span className="font-bold text-2xl">SBC</span>
           </Link>
@@ -90,7 +90,7 @@ export default function LoginPage() {
               </div>
               <div className="flex items-center justify-between">
                 <Link
-                  href="/forgot-password"
+                  to="/forgot-password"
                   className="text-sm text-primary hover:underline"
                 >
                   Forgot password?
@@ -104,6 +104,17 @@ export default function LoginPage() {
                 {isLoading ? "Signing in..." : "Sign In"}
               </Button>
             </form>
+
+            {/* MVP Admin Access */}
+            <div className="mt-4">
+              <Button
+                asChild
+                variant="outline"
+                className="w-full bg-black text-white hover:bg-neutral-900 cursor-pointer"
+              >
+                <Link to="/admin">Sign in as Admin</Link>
+              </Button>
+            </div>
             <div className="mt-6 text-center text-sm">
               <span className="text-muted-foreground">
                 Don't have an account?{" "}

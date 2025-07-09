@@ -21,7 +21,7 @@ import {
   TrendingUp,
   Bell,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 // Mock data - in real app, this would come from API
 const studentData = {
@@ -118,16 +118,22 @@ export default function StudentDashboard() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <div className="border-b bg-muted/40">
-        <div className="container flex h-16 items-center justify-between max-w-4xl mx-auto px-4">
+        <div className="container max-w-4xl mx-auto px-4 flex flex-col sm:flex-row sm:items-center sm:justify-between h-auto sm:h-16 py-4 sm:py-0 gap-2 sm:gap-0">
           <div>
-            <h1 className="text-2xl font-bold">Student Dashboard</h1>
+            <h1 className="text-2xl font-bold leading-tight">
+              Student Dashboard
+            </h1>
             <p className="text-sm text-muted-foreground">
               Welcome back, {studentData.name}
             </p>
           </div>
-          <div className="flex items-center space-x-2">
-            <Badge variant="secondary">{studentData.course}</Badge>
-            <Badge variant="outline">ID: {studentData.studentId}</Badge>
+          <div className="flex flex-row sm:flex-col items-center gap-2 sm:gap-2 w-full sm:w-auto justify-end">
+            <Badge variant="secondary" className="w-full sm:w-auto text-center">
+              {studentData.course}
+            </Badge>
+            <Badge variant="outline" className="w-full sm:w-auto text-center">
+              ID: {studentData.studentId}
+            </Badge>
           </div>
         </div>
       </div>
@@ -190,7 +196,7 @@ export default function StudentDashboard() {
                   asChild
                   className="bg-black text-white hover:bg-neutral-900 cursor-pointer"
                 >
-                  <Link href="/dashboard/notes">
+                  <Link to="/dashboard/notes">
                     <BookOpen className="h-4 w-4 mr-2" />
                     View Notes
                   </Link>
@@ -200,7 +206,7 @@ export default function StudentDashboard() {
                   asChild
                   className="border-black text-black hover:bg-gray-100 cursor-pointer"
                 >
-                  <Link href="/dashboard/tests">
+                  <Link to="/dashboard/tests">
                     <FileText className="h-4 w-4 mr-2" />
                     Take Test
                   </Link>
@@ -228,7 +234,7 @@ export default function StudentDashboard() {
                 className="w-full justify-start border-black text-black hover:bg-gray-100 cursor-pointer"
                 variant="outline"
               >
-                <Link href="/dashboard/results">
+                <Link to="/dashboard/results">
                   <Award className="h-4 w-4 mr-2" />
                   View Results
                 </Link>
@@ -238,7 +244,7 @@ export default function StudentDashboard() {
                 className="w-full justify-start border-black text-black hover:bg-gray-100 cursor-pointer"
                 variant="outline"
               >
-                <Link href="/dashboard/certificates">
+                <Link to="/dashboard/certificates">
                   <Download className="h-4 w-4 mr-2" />
                   Certificates
                 </Link>
@@ -248,7 +254,7 @@ export default function StudentDashboard() {
                 className="w-full justify-start border-black text-black hover:bg-gray-100 cursor-pointer"
                 variant="outline"
               >
-                <Link href="/dashboard/profile">
+                <Link to="/dashboard/notifications">
                   <Bell className="h-4 w-4 mr-2" />
                   Notifications
                 </Link>
@@ -317,6 +323,7 @@ export default function StudentDashboard() {
           </CardContent>
         </Card>
       </div>
+      <Outlet />
     </div>
   );
 }

@@ -69,35 +69,35 @@ export default function StudentNotesPage() {
 		<div className="min-h-screen bg-background">
 			{/* Header */}
 			<div className="border-b bg-muted/40">
-				<div className="container flex h-16 items-center justify-between">
+				<div className="container max-w-4xl mx-auto px-4 flex flex-col sm:flex-row sm:items-center sm:justify-between h-auto sm:h-16 py-4 sm:py-0 gap-2 sm:gap-0">
 					<div>
 						<h1 className="text-2xl font-bold">Study Materials</h1>
 						<p className="text-sm text-muted-foreground">Access your course notes and assignments</p>
 					</div>
-					<Button asChild>
+					<Button asChild className="w-full sm:w-auto mt-2 sm:mt-0">
 						<Link to="/dashboard">Back to Dashboard</Link>
 					</Button>
 				</div>
 			</div>
 
-			<div className="container py-6">
+			<div className="container py-6 max-w-4xl mx-auto px-4">
 				{/* Search and Filter */}
-				<div className="flex flex-col md:flex-row gap-4 mb-6">
-					<div className="relative flex-1 max-w-md">
+				<div className="flex flex-col md:flex-row gap-4 mb-6 w-full">
+					<div className="relative flex-1 max-w-md w-full">
 						<Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
 						<Input
 							placeholder="Search materials..."
 							value={searchTerm}
 							onChange={(e) => setSearchTerm(e.target.value)}
-							className="pl-10"
+							className="pl-10 w-full"
 						/>
 					</div>
-					<div className="flex items-center gap-2">
+					<div className="flex items-center gap-2 w-full md:w-auto">
 						<Filter className="h-4 w-4 text-muted-foreground" />
 						<select
 							value={selectedType}
 							onChange={(e) => setSelectedType(e.target.value)}
-							className="border rounded-md px-3 py-2 text-sm"
+							className="border rounded-md px-3 py-2 text-sm w-full md:w-auto"
 						>
 							<option value="All">All Types</option>
 							<option value="Notes">Notes</option>
@@ -109,7 +109,7 @@ export default function StudentNotesPage() {
 				</div>
 
 				{/* Quick Stats */}
-				<div className="grid gap-6 md:grid-cols-4 mb-8">
+				<div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4 mb-8">
 					<Card className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
 						<CardContent className="p-6">
 							<div className="flex items-center justify-between">
@@ -160,39 +160,44 @@ export default function StudentNotesPage() {
 				<div className="space-y-6">
 					{filteredMaterials.map((material) => (
 						<Card key={material.id} className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
-							<CardContent className="p-8">
-								<div className="flex items-center justify-between">
-									<div className="flex-1">
-										<div className="flex items-center space-x-2 mb-2">
-											<h3 className="font-semibold text-lg">{material.title}</h3>
-											{material.downloaded && (
-												<Badge variant="secondary" className="text-xs">
-													Downloaded
-												</Badge>
-											)}
-										</div>
-										<p className="text-muted-foreground mb-3">{material.description}</p>
-										<div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-											<Badge variant="outline">{material.course}</Badge>
-											<Badge variant="outline">{material.type}</Badge>
-											<div className="flex items-center">
-												<Calendar className="h-4 w-4 mr-1" />
-												{new Date(material.uploadDate).toLocaleDateString()}
-											</div>
-											<span>{material.size}</span>
-											<span>{material.fileType}</span>
-										</div>
+							<CardContent className="p-6 flex flex-col md:flex-row md:items-center gap-4">
+								<div className="flex-1 min-w-0">
+									<div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2 mb-2">
+										<h3 className="font-semibold text-lg line-clamp-2">{material.title}</h3>
+										{material.downloaded && (
+											<Badge variant="secondary" className="text-xs">Downloaded</Badge>
+										)}
 									</div>
-									<div className="flex flex-col md:flex-row gap-2 ml-4">
-										<Button variant="outline" size="sm" className="flex items-center">
-											<Eye className="h-4 w-4 mr-2" />
-											Preview
-										</Button>
-										<Button size="sm" className="flex items-center bg-black text-white hover:bg-neutral-900">
-											<Download className="h-4 w-4 mr-2" />
-											Download
-										</Button>
+									<p className="text-muted-foreground mb-3 line-clamp-2">{material.description}</p>
+									<div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+										<Badge variant="outline">{material.course}</Badge>
+										<Badge variant="outline">{material.type}</Badge>
+										<div className="flex items-center">
+											<Calendar className="h-4 w-4 mr-1" />
+											{new Date(material.uploadDate).toLocaleDateString()}
+										</div>
+										<span>{material.size}</span>
+										<span>{material.fileType}</span>
 									</div>
+								</div>
+								<div className="flex flex-row gap-2 mt-4 md:mt-0 md:flex-col md:items-end min-w-[120px]">
+									<Button
+										variant="outline"
+										size="sm"
+										className="flex items-center w-full md:w-auto cursor-pointer"
+									>
+										<Eye className="h-4 w-4 mr-2" />
+										Preview
+									</Button>
+									<a
+										href="/PDF-RSCIT-Paper-PDF-27-April-2025.pdf"
+										download
+										className="flex items-center w-full md:w-auto cursor-pointer bg-black text-white hover:bg-neutral-900 rounded-md px-3 py-2 text-sm justify-center transition-colors"
+										style={{ minHeight: '32px' }}
+									>
+										<Download className="h-4 w-4 mr-2" />
+										Download
+									</a>
 								</div>
 							</CardContent>
 						</Card>

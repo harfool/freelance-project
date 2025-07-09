@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "../components/Footer.jsx";
+import { Link } from "react-router-dom";
 
 export default function PrivacyPage() {
   return (
@@ -66,9 +67,9 @@ export default function PrivacyPage() {
               <li>Opt out of marketing communications.</li>
               <li>
                 Request a copy of your data or raise privacy concerns by{" "}
-                <a href="/contact" className="text-primary hover:underline">
+                <Link to="/contact" className="text-primary hover:underline">
                   contacting us
-                </a>
+                </Link>
                 .
               </li>
             </ul>
@@ -83,9 +84,9 @@ export default function PrivacyPage() {
             <p className="mb-6 text-muted-foreground">
               If you have questions or concerns about our privacy practices,
               please{" "}
-              <a href="/contact" className="text-primary hover:underline">
+              <Link to="/contact" className="text-primary hover:underline">
                 contact us
-              </a>
+              </Link>
               .
             </p>
           </div>

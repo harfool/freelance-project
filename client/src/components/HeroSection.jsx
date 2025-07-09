@@ -23,11 +23,11 @@ export default function HeroSection() {
                 teaching methods and expert faculty.
               </p>
             </div>
-            <div className="space-x-4">
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center mt-2">
               <Button
                 asChild
                 size="lg"
-                className="bg-black text-white hover:bg-neutral-900 cursor-pointer shadow-md"
+                className="bg-black text-white hover:bg-neutral-900 cursor-pointer shadow-md w-full sm:w-auto"
               >
                 <Link to="/courses">Explore Courses</Link>
               </Button>
@@ -35,7 +35,7 @@ export default function HeroSection() {
                 variant="outline"
                 size="lg"
                 asChild
-                className="border-black text-black hover:bg-gray-100 cursor-pointer shadow-md"
+                className="border-black text-black hover:bg-gray-100 cursor-pointer shadow-md w-full sm:w-auto"
               >
                 <Link to="/tests">Take Demo Test</Link>
               </Button>

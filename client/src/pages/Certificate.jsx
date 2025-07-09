@@ -70,58 +70,62 @@ export default function StudentCertificatesPage() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <div className="border-b bg-muted/40">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="container max-w-6xl mx-auto px-4 flex flex-col sm:flex-row sm:items-center sm:justify-between h-auto sm:h-16 py-4 sm:py-0 gap-2 sm:gap-0">
           <div>
             <h1 className="text-2xl font-bold">Certificates & Achievements</h1>
             <p className="text-sm text-muted-foreground">
               Your earned certificates and achievements
             </p>
           </div>
-          <Button asChild>
+          <Button asChild className="w-full sm:w-auto mt-2 sm:mt-0">
             <Link to="/dashboard">Back to Dashboard</Link>
           </Button>
         </div>
       </div>
 
-      <div className="container py-6">
+      <div className="container py-8 max-w-6xl mx-auto px-4">
         {/* Stats Overview */}
-        <div className="grid gap-4 md:grid-cols-3 mb-8">
-          <Card>
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-3 mb-8">
+          <Card className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-muted-foreground">
                     Total Certificates
                   </p>
-                  <p className="text-2xl font-bold">{certificates.length}</p>
+                  <p className="text-3xl font-bold text-primary">
+                    {certificates.length}
+                  </p>
                 </div>
-                <Award className="h-8 w-8 text-primary" />
+                <Award className="h-10 w-10 text-primary" />
               </div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-muted-foreground">
                     Achievements
                   </p>
-                  <p className="text-2xl font-bold">{achievements.length}</p>
+                  <p className="text-3xl font-bold text-yellow-600">
+                    {achievements.length}
+                  </p>
                 </div>
-                <Award className="h-8 w-8 text-yellow-600" />
+                <Award className="h-10 w-10 text-yellow-600" />
               </div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-medium text-muted-foreground">
                     Average Grade
                   </p>
-                  <p className="text-2xl font-bold">A-</p>
+                  <p className="text-3xl font-bold text-green-600">A-</p>
                 </div>
-                <Award className="h-8 w-8 text-green-600" />
+                <Award className="h-10 w-10 text-green-600" />
               </div>
             </CardContent>
           </Card>
@@ -129,124 +133,173 @@ export default function StudentCertificatesPage() {
 
         {/* Certificates Section */}
         <div className="space-y-6 mb-8">
-          <h2 className="text-xl font-semibold">My Certificates</h2>
+          <h2 className="text-2xl font-semibold mb-6">My Certificates</h2>
 
-          {certificates.map((certificate) => (
-            <Card key={certificate.id}>
-              <CardHeader>
-                <div className="flex items-center justify-between">
+          <div className="grid gap-6 grid-cols-1">
+            {certificates.map((certificate) => (
+              <Card
+                key={certificate.id}
+                className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200"
+              >
+                <CardHeader className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-0">
                   <div>
-                    <CardTitle className="text-xl">
+                    <CardTitle className="text-xl flex items-center gap-2">
+                      <Award className="h-6 w-6 text-primary" />
                       {certificate.title}
                     </CardTitle>
-                    <CardDescription className="flex items-center space-x-4 mt-2">
-                      <div className="flex items-center">
+                    <CardDescription className="flex flex-wrap items-center gap-2 mt-2">
+                      <span className="flex items-center text-muted-foreground">
                         <Calendar className="h-4 w-4 mr-1" />
                         Issued:{" "}
                         {new Date(certificate.issueDate).toLocaleDateString()}
-                      </div>
-                      <Badge variant="outline">{certificate.course}</Badge>
+                      </span>
+                      <Badge variant="outline" className="text-xs px-2 py-1">
+                        {certificate.course}
+                      </Badge>
                     </CardDescription>
                   </div>
-                  <Badge variant="default" className="text-lg px-4 py-2">
-                    {certificate.status}
-                  </Badge>
-                </div>
-              </CardHeader>
+                  <div className="flex flex-col md:items-end gap-2">
+                    <Badge variant="default" className="text-sm px-3 py-1">
+                      {certificate.status}
+                    </Badge>
+                  </div>
+                </CardHeader>
 
-              <CardContent className="space-y-6">
-                {/* Certificate Details */}
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-4">
-                    <h4 className="font-semibold">Certificate Details</h4>
-                    <div className="space-y-2 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">
-                          Certificate Number:
-                        </span>
-                        <span className="font-medium">
-                          {certificate.certificateNumber}
-                        </span>
+                <CardContent className="p-6">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                    <div className="space-y-4">
+                      <h4 className="font-semibold text-lg">
+                        Certificate Details
+                      </h4>
+                      <div className="space-y-3 text-sm">
+                        <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                          <span className="text-muted-foreground font-medium">
+                            Certificate Number:
+                          </span>
+                          <span className="font-semibold">
+                            {certificate.certificateNumber}
+                          </span>
+                        </div>
+                        <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                          <span className="text-muted-foreground font-medium">
+                            Grade Achieved:
+                          </span>
+                          <Badge
+                            variant="secondary"
+                            className="text-sm px-3 py-1"
+                          >
+                            {certificate.grade}
+                          </Badge>
+                        </div>
+                        <div className="flex justify-between items-center py-2 border-b border-gray-100">
+                          <span className="text-muted-foreground font-medium">
+                            Percentage:
+                          </span>
+                          <span className="font-semibold text-green-700">
+                            {certificate.percentage}%
+                          </span>
+                        </div>
+                        <div className="flex justify-between items-center py-2">
+                          <span className="text-muted-foreground font-medium">
+                            Valid Until:
+                          </span>
+                          <span className="font-semibold">
+                            {certificate.validUntil}
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">
-                          Grade Achieved:
-                        </span>
-                        <Badge variant="secondary">{certificate.grade}</Badge>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">
-                          Percentage:
-                        </span>
-                        <span className="font-medium">
-                          {certificate.percentage}%
-                        </span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">
-                          Valid Until:
-                        </span>
-                        <span className="font-medium">
-                          {certificate.validUntil}
-                        </span>
+                    </div>
+                    <div className="space-y-4">
+                      <h4 className="font-semibold text-lg">Verification</h4>
+                      <div className="p-4 bg-muted/30 rounded-lg border">
+                        <p className="text-sm text-muted-foreground mb-2 font-medium">
+                          Verification URL:
+                        </p>
+                        <a
+                          href={certificate.verificationUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs font-mono bg-background p-3 rounded border break-all block hover:underline text-primary transition-colors"
+                        >
+                          {certificate.verificationUrl}
+                        </a>
                       </div>
                     </div>
                   </div>
 
-                  <div className="space-y-4">
-                    <h4 className="font-semibold">Verification</h4>
-                    <div className="p-4 bg-muted/50 rounded-lg">
-                      <p className="text-sm text-muted-foreground mb-2">
-                        Verification URL:
-                      </p>
-                      <p className="text-xs font-mono bg-background p-2 rounded border break-all">
-                        {certificate.verificationUrl}
-                      </p>
-                    </div>
+                  <div className="flex flex-wrap gap-3 pt-4 border-t">
+                    <a
+                      href={certificate.downloadUrl}
+                      download
+                      className="inline-flex"
+                    >
+                      <Button className="flex items-center bg-black text-white hover:bg-neutral-900 w-full sm:w-auto cursor-pointer">
+                        <Download className="h-4 w-4 mr-2" />
+                        Download PDF
+                      </Button>
+                    </a>
+                    <a
+                      href={certificate.downloadUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex"
+                    >
+                      <Button
+                        variant="outline"
+                        className="w-full sm:w-auto cursor-pointer"
+                      >
+                        <Eye className="h-4 w-4 mr-2" />
+                        Preview
+                      </Button>
+                    </a>
+                    <Button
+                      variant="outline"
+                      className="w-full sm:w-auto cursor-pointer"
+                      onClick={() => {
+                        navigator.clipboard.writeText(
+                          certificate.verificationUrl
+                        );
+                        alert("Verification URL copied to clipboard!");
+                      }}
+                    >
+                      <Share className="h-4 w-4 mr-2" />
+                      Share
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="w-full sm:w-auto cursor-pointer"
+                      onClick={() => window.print()}
+                    >
+                      <Printer className="h-4 w-4 mr-2" />
+                      Print
+                    </Button>
                   </div>
-                </div>
-
-                {/* Actions */}
-                <div className="flex flex-wrap gap-2 pt-4 border-t">
-                  <Button>
-                    <Download className="h-4 w-4 mr-2" />
-                    Download PDF
-                  </Button>
-                  <Button variant="outline" className="bg-transparent">
-                    <Eye className="h-4 w-4 mr-2" />
-                    Preview
-                  </Button>
-                  <Button variant="outline" className="bg-transparent">
-                    <Share className="h-4 w-4 mr-2" />
-                    Share
-                  </Button>
-                  <Button variant="outline" className="bg-transparent">
-                    <Printer className="h-4 w-4 mr-2" />
-                    Print
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
 
         {/* Achievements Section */}
-        <div className="space-y-6">
-          <h2 className="text-xl font-semibold">Achievements & Badges</h2>
+        <div className="space-y-6 mb-8">
+          <h2 className="text-2xl font-semibold mb-6">Achievements & Badges</h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {achievements.map((achievement) => (
-              <Card key={achievement.id}>
+              <Card
+                key={achievement.id}
+                className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200"
+              >
                 <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-4">{achievement.icon}</div>
-                  <h3 className="font-semibold text-lg mb-2">
+                  <div className="text-5xl mb-4">{achievement.icon}</div>
+                  <h3 className="font-semibold text-xl mb-3 text-primary">
                     {achievement.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
+                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                     {achievement.description}
                   </p>
-                  <div className="flex items-center justify-center text-xs text-muted-foreground">
-                    <Calendar className="h-3 w-3 mr-1" />
+                  <div className="flex items-center justify-center text-xs text-muted-foreground bg-muted/30 rounded-lg py-2 px-3">
+                    <Calendar className="h-4 w-4 mr-2" />
                     Earned:{" "}
                     {new Date(achievement.earnedDate).toLocaleDateString()}
                   </div>
@@ -257,32 +310,42 @@ export default function StudentCertificatesPage() {
         </div>
 
         {/* Certificate Verification Info */}
-        <Card className="mt-8">
+        <Card className="shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200">
           <CardHeader>
-            <CardTitle>Certificate Verification</CardTitle>
+            <CardTitle className="text-xl">Certificate Verification</CardTitle>
             <CardDescription>How to verify your certificates</CardDescription>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-semibold mb-2">For Employers</h4>
-                  <p className="text-sm text-muted-foreground">
+          <CardContent className="p-6">
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <h4 className="font-semibold text-lg flex items-center gap-2">
+                    <Award className="h-5 w-5 text-primary" />
+                    For Employers
+                  </h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     Employers can verify the authenticity of certificates using
                     the verification URL provided with each certificate.
                   </p>
                 </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Digital Security</h4>
-                  <p className="text-sm text-muted-foreground">
+                <div className="space-y-3">
+                  <h4 className="font-semibold text-lg flex items-center gap-2">
+                    <Award className="h-5 w-5 text-green-600" />
+                    Digital Security
+                  </h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     All certificates are digitally signed and secured with
                     blockchain technology for tamper-proof verification.
                   </p>
                 </div>
               </div>
               <div className="pt-4 border-t">
-                <Button variant="outline" className="bg-transparent" asChild>
-                  <Link href="/contact">Need Help with Verification?</Link>
+                <Button
+                  variant="outline"
+                  className="w-full sm:w-auto cursor-pointer"
+                  asChild
+                >
+                  <Link to="/contact">Need Help with Verification?</Link>
                 </Button>
               </div>
             </div>

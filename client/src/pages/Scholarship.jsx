@@ -283,7 +283,7 @@ export default function ScholarshipPage() {
                       className="w-full bg-black text-white hover:bg-neutral-900 cursor-pointer mt-2 py-2 text-sm"
                       asChild
                     >
-                      <Link href="/login">Apply Now</Link>
+                      <Link to="/login">Apply Now</Link>
                     </Button>
                   </CardContent>
                 </Card>

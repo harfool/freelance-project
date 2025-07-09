@@ -47,12 +47,12 @@ export default function StudentProfilePage() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <div className="border-b bg-muted/40">
-        <div className="container flex h-16 items-center justify-between max-w-4xl mx-auto px-4">
+        <div className="container max-w-4xl mx-auto px-4 flex flex-col sm:flex-row sm:items-center sm:justify-between h-auto sm:h-16 py-4 sm:py-0 gap-2 sm:gap-0">
           <div>
             <h1 className="text-2xl font-bold">My Profile</h1>
             <p className="text-sm text-muted-foreground">Manage your account settings and preferences</p>
           </div>
-          <Button asChild>
+          <Button asChild className="w-full sm:w-auto mt-2 sm:mt-0">
             <Link to="/dashboard">Back to Dashboard</Link>
           </Button>
         </div>
@@ -97,6 +97,7 @@ export default function StudentProfilePage() {
                   <Button
                     onClick={() => (isEditing ? handleSave() : setIsEditing(true))}
                     variant={isEditing ? "default" : "outline"}
+                    className="w-full sm:w-auto"
                   >
                     {isEditing ? (
                       <>

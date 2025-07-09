@@ -20,7 +20,11 @@ import Terms from "./pages/Terms.jsx";
 import Privacy from "./pages/Privacy.jsx";
 import TestDashboard from "./pages/TestDashboard.jsx";
 import Announcements from "./pages/Announcements.jsx";
-import Profile from "./pages/Profile.jsx"
+import Profile from "./pages/Profile.jsx";
+import StudentResultPage from "./pages/StudentResult.jsx";
+import Certificate from "./pages/Certificate.jsx";
+import NotificationPage from "./pages/Notification.jsx";
+import AdminDashboard from "./pages/Admin.jsx";
 
 function AppRoutes() {
   const location = useLocation();
@@ -44,12 +48,19 @@ function AppRoutes() {
         <Route path="/courses" element={<Courses />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="notes" element={<Notes />} />
+          <Route path="tests" element={<Tests />} />
+          <Route path="results" element={<StudentResultPage />} />
+          <Route path="certificates" element={<Certificate />} />
+          <Route path="notifications" element={<NotificationPage />} />
+        </Route>
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/testDashboard" element={<TestDashboard />} />
         <Route path="/announcements" element={<Announcements />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
     </>
   );

@@ -297,7 +297,7 @@ export default function TestsPage() {
                             asChild
                             disabled
                           >
-                            <Link href="/login">Login to Take Test</Link>
+                            <Link to="/login">Login to Take Test</Link>
                           </Button>
                         )}
                       </div>
