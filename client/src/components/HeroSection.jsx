@@ -23,22 +23,27 @@ export default function HeroSection() {
                 teaching methods and expert faculty.
               </p>
             </div>
-            <div className="space-x-4 ">
+            <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center mt-2">
               <Button
                 asChild
                 size="lg"
-                className="bg-black text-white hover:bg-neutral-800"
+                className="bg-black text-white hover:bg-neutral-900 cursor-pointer shadow-md w-full sm:w-auto"
               >
                 <Link to="/courses">Explore Courses</Link>
               </Button>
-              <Button variant="outline" size="lg" asChild>
+              <Button
+                variant="outline"
+                size="lg"
+                asChild
+                className="border-black text-black hover:bg-gray-100 cursor-pointer shadow-md w-full sm:w-auto"
+              >
                 <Link to="/tests">Take Demo Test</Link>
               </Button>
             </div>
           </div>
 
-          <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-4 lg:gap-12 ">
-            <Card className="pt-4">
+          <div className="mx-auto grid max-w-5xl items-center gap-8 py-12 lg:grid-cols-4 lg:gap-12">
+            <Card className="pt-4 shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200 rounded-xl">
               <CardContent className="flex flex-col items-center space-y-2 p-6">
                 <BookOpen className="h-12 w-12 text-primary" />
                 <h3 className="text-2xl font-bold">500+</h3>
@@ -47,7 +52,7 @@ export default function HeroSection() {
                 </p>
               </CardContent>
             </Card>
-            <Card className="pt-4">
+            <Card className="pt-4 shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200 rounded-xl">
               <CardContent className="flex flex-col items-center space-y-2 p-6">
                 <Users className="h-12 w-12 text-primary" />
                 <h3 className="text-2xl font-bold">2000+</h3>
@@ -56,7 +61,7 @@ export default function HeroSection() {
                 </p>
               </CardContent>
             </Card>
-            <Card className="pt-4">
+            <Card className="pt-4 shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200 rounded-xl">
               <CardContent className="flex flex-col items-center space-y-2 p-6">
                 <Award className="h-12 w-12 text-primary" />
                 <h3 className="text-2xl font-bold">95%</h3>
@@ -65,7 +70,7 @@ export default function HeroSection() {
                 </p>
               </CardContent>
             </Card>
-            <Card className="pt-4">
+            <Card className="pt-4 shadow-lg border-0 bg-white/90 hover:shadow-xl transition-shadow duration-200 rounded-xl">
               <CardContent className="flex flex-col items-center space-y-2 p-6">
                 <TrendingUp className="h-12 w-12 text-primary" />
                 <h3 className="text-2xl font-bold">10+</h3>

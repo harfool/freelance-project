@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <GraduationCap className="h-6 w-6" />
-              <span className="font-bold text-xl">EduInstitute</span>
+              <span className="font-bold text-xl">SBC</span>
             </div>
             <p className="text-sm text-muted-foreground">
               Excellence in education with comprehensive courses and modern
@@ -68,30 +68,6 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  to="/resources/notes"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Notes & Assignments
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/resources/papers"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Question Papers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/resources/software"
-                  className="text-muted-foreground hover:text-foreground"
-                >
-                  Software Downloads
-                </Link>
-              </li>
-              <li>
-                <Link
                   to="/gallery"
                   className="text-muted-foreground hover:text-foreground"
                 >
@@ -118,20 +94,18 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="h-4 w-4" />
-                <span>info@eduinstitute.com</span>
+                <span>balajicoaching@centre</span>
               </li>
               <li className="flex items-start space-x-2">
                 <MapPin className="h-4 w-4 mt-0.5" />
-                <span>123 Education Street, Learning City, State 123456</span>
+                <span>Sareri, Rajasthan 311030</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>
-            &copy; {new Date().getFullYear()} EduInstitute. All rights reserved.
-          </p>
+          <p>&copy; {new Date().getFullYear()} SBC.</p>
         </div>
       </div>
     </footer>

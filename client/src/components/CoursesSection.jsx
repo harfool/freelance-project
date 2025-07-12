@@ -80,46 +80,59 @@ export default function CoursesSection() {
         </div>
         <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 xl:grid-cols-3 lg:gap-12">
           {courses.map((course) => (
-            <Card key={course.id} className="flex flex-col">
+            <Card
+              key={course.id}
+              className="flex flex-col shadow-lg border border-gray-200 rounded-xl hover:shadow-2xl transition-shadow duration-200 bg-gradient-to-br from-primary/10 via-white to-secondary/10"
+            >
               <CardHeader>
                 <div className="flex items-center justify-between">
-                  <CardTitle className="text-xl">{course.title}</CardTitle>
-                  <Badge variant="secondary bg-[#F7F7F7]">{course.level}</Badge>
+                  <CardTitle className="text-xl font-bold text-primary">
+                    {course.title}
+                  </CardTitle>
+                  <Badge
+                    variant="secondary"
+                    className="bg-[#F7F7F7] text-xs px-3 py-1 font-semibold tracking-wide uppercase"
+                  >
+                    {course.level}
+                  </Badge>
                 </div>
-                <CardDescription className="text-sm">
+                <CardDescription className="text-sm text-muted-foreground mt-1">
                   {course.description}
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex-1 space-y-4">
-                <div className="grid grid-cols-3 gap-4 text-sm">
+                <div className="grid grid-cols-3 gap-4 text-sm mt-2">
                   <div className="flex items-center space-x-1">
                     <Clock className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-muted-foreground">
+                    <span className="text-muted-foreground font-medium">
                       {course.duration}
                     </span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <Users className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-muted-foreground">
+                    <span className="text-muted-foreground font-medium">
                       {course.students}
                     </span>
                   </div>
                   <div className="flex items-center space-x-1">
                     <BookOpen className="h-4 w-4 text-muted-foreground" />
-                    <span className="text-muted-foreground">
+                    <span className="text-muted-foreground font-medium">
                       {course.modules}
                     </span>
                   </div>
                 </div>
-                <Button asChild={false} className="w-full text-white cursor-pointer bg-black hover:bg-zinc-800">
-                  <Link to={course.href}>Learn More</Link>
-                </Button>
+                {/* Removed Learn More button for a cleaner card */}
               </CardContent>
             </Card>
           ))}
         </div>
-        <div className="flex justify-center">
-          <Button variant="outline" size="lg" asChild={false}>
+        <div className="flex justify-center mt-4">
+          <Button
+            variant="outline"
+            size="lg"
+            asChild={false}
+            className="border-black text-black hover:bg-gray-100 cursor-pointer"
+          >
             <Link to="/courses">View All Courses</Link>
           </Button>
         </div>

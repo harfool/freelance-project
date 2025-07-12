@@ -10,11 +10,11 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-15">
-      <div className="container flex h-16 items-center">
-        <Link to="/" className="flex items-center space-x-2">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-0">
+      <div className="container flex h-16 items-center justify-between px-4 md:px-8">
+        <Link to="/" className="flex items-center space-x-2 mr-8">
           <GraduationCap className="h-6 w-6" />
-          <span className="font-bold text-xl">EduInstitute</span>
+          <span className="font-bold text-xl">SBC</span>
         </Link>
         <nav className="hidden md:flex mx-6 space-x-6">
           <Link
@@ -22,12 +22,6 @@ export default function Header() {
             className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-4 py-2 rounded"
           >
             Home
-          </Link>
-          <Link
-            to="/courses"
-            className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-4 py-2 rounded"
-          >
-            Courses
           </Link>
           <Link
             to="/resources"
@@ -39,7 +33,7 @@ export default function Header() {
             to="/tests"
             className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-4 py-2 rounded"
           >
-            Online Tests
+            Tests
           </Link>
           <Link
             to="/results"
@@ -59,6 +53,12 @@ export default function Header() {
           >
             About
           </Link>
+          <Link
+            to="/gallery"
+            className="text-sm font-medium transition-colors hover:text-black hover:bg-[#F5F5F5] px-4 py-2 rounded"
+          >
+            Gallery
+          </Link>
         </nav>
         <div className="ml-auto flex items-center space-x-2">
           <Button variant="ghost" size="sm" asChild className="hidden md:flex">
@@ -68,7 +68,7 @@ export default function Header() {
             </Link>
           </Button>
           <Button size="sm" asChild className="hidden md:flex">
-            <Link to="/dashboard">
+            <Link to="/register">
               <User className="h-4 w-4 mr-2" />
               SignUp
             </Link>
@@ -77,18 +77,30 @@ export default function Header() {
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="sm" className="md:hidden">
+              <Button variant="ghost" size="sm" className="md:hidden focus:outline-none focus:ring-2 focus:ring-primary">
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <nav className="flex flex-col space-y-4">
+            <SheetContent
+              side="right"
+              className="w-full max-w-xs sm:w-[400px] p-6 bg-white text-black border-l border-gray-200 shadow-xl"
+              title="Main Menu"
+            >
+              <nav className="flex flex-col space-y-4 mt-4">
+                <span className="text-2xl font-bold mb-2">Menu</span>
                 <Link
                   to="/"
                   className="text-lg font-medium"
                   onClick={() => setIsOpen(false)}
                 >
                   Home
+                </Link>
+                <Link
+                  to="/resources"
+                  className="text-lg font-medium"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Resources
                 </Link>
                 <Link
                   to="/tests"
@@ -117,6 +129,13 @@ export default function Header() {
                   onClick={() => setIsOpen(false)}
                 >
                   About
+                </Link>
+                <Link
+                  to="/gallery"
+                  className="text-lg font-medium"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Gallery
                 </Link>
                 <div className="pt-4 space-y-2">
                   <Button
